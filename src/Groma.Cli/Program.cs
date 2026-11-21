@@ -13,13 +13,42 @@ try
         case ["measure", var path, "--previous", var previous]:
             Console.Out.Write(Metrics.ToJson(Metrics.Measure(LayoutFile.Read(File.ReadAllText(path)), LayoutFile.Read(File.ReadAllText(previous)))));
             return 0;
+        case ["survey", var graph]:
+            Console.Out.Write(LayoutFile.Write(Plan.Survey(LayoutFile.ReadGraph(File.ReadAllText(graph)))));
+            return 0;
+        case ["update", var graph, "--previous", var previous]:
+            Console.Out.Write(LayoutFile.Write(Plan.Update(LayoutFile.ReadGraph(File.ReadAllText(graph)), LayoutFile.Read(File.ReadAllText(previous)))));
+            return 0;
+        case ["route", var layout, "--links", var links]:
+            Console.Out.Write(LayoutFile.Write(Plan.RouteExtra(LayoutFile.Read(File.ReadAllText(layout)), LayoutFile.ReadLinks(File.ReadAllText(links)))));
+            return 0;
+        case ["render", var layout]:
+            Console.Out.Write(Svg.Render(LayoutFile.Read(File.ReadAllText(layout))));
+            return 0;
+        case ["render", var layout, "--previous", var previous]:
+            Console.Out.Write(Svg.Render(LayoutFile.Read(File.ReadAllText(layout)), LayoutFile.Read(File.ReadAllText(previous))));
+            return 0;
         case ["bench", var dir]:
             Bench(dir);
             return 0;
         default:
-            Console.Error.WriteLine("usage: groma measure <layout.json> [--previous <old.json>] | groma bench <fixtures-dir>");
+            Console.Error.WriteLine(
+                """
+                usage: groma survey  <graph.json>                           fresh layout
+                       groma update  <graph.json> --previous <layout.json>  keep surviving boxes where they are
+                       groma route   <layout.json> --links <links.json>     draw extra links, move nothing
+                       groma measure <layout.json> [--previous <old.json>]  quality measures
+                       groma render  <layout.json> [--previous <old.json>]  a picture for checking by eye
+                       groma bench   <fixtures-dir>                         every measure for every fixture
+                Layouts and measures are written to standard output. Exit 2: bad input. Exit 3: re-survey needed.
+                """);
             return 2;
     }
+}
+catch (ResurveyNeededException e)
+{
+    Console.Error.WriteLine("groma: re-survey needed. " + e.Message);
+    return 3;
 }
 catch (Exception e) when (e is GromaInputException or IOException)
 {
@@ -27,8 +56,13 @@ catch (Exception e) when (e is GromaInputException or IOException)
     return 2;
 }
 
-// Step 1 of the build has no layout engine yet; this becomes Plan.Survey / Plan.Update.
-static Layout? Lay(Graph graph, Layout? previous) => null;
+// What a consumer does on each scan: update, and fall back to a fresh layout only when told it must.
+static Layout? Lay(Graph graph, Layout? previous)
+{
+    if (previous is null) return Plan.Survey(graph);
+    try { return Plan.Update(graph, previous); }
+    catch (ResurveyNeededException) { return Plan.Survey(graph); }
+}
 
 // Every fixture, every scan: lay it out, measure it, time it, and print it beside the prototypes' figures.
 static void Bench(string dir)
@@ -80,6 +114,7 @@ static void Bench(string dir)
                     F(Math.Max(r.Width, r.Height) == 0 ? 1 : (double)Math.Min(r.Width, r.Height) / Math.Max(r.Width, r.Height), "0.00"),
                     With(F(times[times.Count / 2], "0.0"), "ms"),
                 ]);
+                if (r.Moved > 0) cells[4] += " RE-SURVEYED";
                 if (r.Diagonals + r.DetachedEnds > 0) cells[0] += $" (INVALID: {r.Diagonals} bad segments, {r.DetachedEnds} detached ends)";
             }
             Console.WriteLine("| " + string.Join(" | ", cells) + " |");

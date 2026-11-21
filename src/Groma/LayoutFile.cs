@@ -12,16 +12,20 @@ public static class LayoutFile
         var boxes = root.GetProperty("boxes").EnumerateArray().Select(b => new Box(
             Str(b, "id") ?? throw new GromaInputException("A box has no \"id\"."),
             Int(b, "width"), Int(b, "height"), Str(b, "parent"))).ToList();
-        var links = root.GetProperty("links").EnumerateArray().Select(l =>
-        {
-            var id = Str(l, "id") ?? throw new GromaInputException("A link has no \"id\".");
-            return new Link(id, Str(l, "from"), Str(l, "to"), Edge(l, "fromEdge", id), Edge(l, "toEdge", id),
-                Int(l, "labelWidth"), Int(l, "labelHeight"));
-        }).ToList();
-        var graph = new Graph(boxes, links);
+        var graph = new Graph(boxes, Links(root));
         GraphCheck.Run(graph);
         return graph;
     });
+
+    /// <summary>Reads the "links" of a JSON object on their own, for routing extra links over a layout.</summary>
+    public static IReadOnlyList<Link> ReadLinks(string json) => Parse(json, Links);
+
+    static List<Link> Links(JsonElement root) => root.GetProperty("links").EnumerateArray().Select(l =>
+    {
+        var id = Str(l, "id") ?? throw new GromaInputException("A link has no \"id\".");
+        return new Link(id, Str(l, "from"), Str(l, "to"), Edge(l, "fromEdge", id), Edge(l, "toEdge", id),
+            Int(l, "labelWidth"), Int(l, "labelHeight"));
+    }).ToList();
 
     public static Layout Read(string json) => Parse(json, root =>
     {

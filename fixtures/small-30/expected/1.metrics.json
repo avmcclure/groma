@@ -1,0 +1,21 @@
+{
+  "boxes": 30,
+  "links": 24,
+  "survivors": 0,
+  "moved": 0,
+  "crossings": 13,
+  "throughBoxes": 0,
+  "overlappingBoxes": 0,
+  "onTop": 0,
+  "containerCuts": 2,
+  "bends": 35,
+  "maxBends": 6,
+  "length": 1311,
+  "labelClashes": 0,
+  "labelsOverLines": 0,
+  "diagonals": 0,
+  "detachedEnds": 0,
+  "width": 236,
+  "height": 50,
+  "area": 11800
+}

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="420" viewBox="0 0 1040 420" font-family="sans-serif" font-size="11">
+<rect width="100%" height="100%" fill="#fff" stroke="#bbb"/>
+<rect x="40" y="40" width="360" height="260" fill="#f3f1ea" fill-opacity="0.6" stroke="#8a8370" stroke-dasharray="6 3"/><text x="46" y="54" font-weight="bold">db1</text>
+<rect x="440" y="40" width="360" height="260" fill="#f3f1ea" fill-opacity="0.6" stroke="#8a8370" stroke-dasharray="6 3"/><text x="446" y="54" font-weight="bold">db2</text>
+<polyline points="240,100 200,100" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="200" cy="100" r="2.5" fill="#35506b"/>
+<polyline points="440,170 400,170" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="400" cy="170" r="2.5" fill="#35506b"/>
+<polyline points="850,40 850,30 390,30 390,40" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="390" cy="40" r="2.5" fill="#35506b"/>
+<polyline points="860,40 860,20 380,20 380,70 390,70 390,170 200,170" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="200" cy="170" r="2.5" fill="#35506b"/>
+<polyline points="840,60 800,60" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="800" cy="60" r="2.5" fill="#35506b"/>
+<polyline points="850,80 850,330 590,330 590,340" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="590" cy="340" r="2.5" fill="#35506b"/>
+<polyline points="120,340 120,300" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="120" cy="300" r="2.5" fill="#35506b"/>
+<polyline points="200,350 430,350 430,290 440,290" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="440" cy="290" r="2.5" fill="#35506b"/>
+<polyline points="520,340 520,300" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="300" r="2.5" fill="#35506b"/>
+<polyline points="440,360 200,360" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="200" cy="360" r="2.5" fill="#35506b"/>
+<polyline points="850,380 850,390 390,390 390,300" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="390" cy="300" r="2.5" fill="#35506b"/>
+<polyline points="860,380 860,400 30,400 30,110 60,110" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="60" cy="110" r="2.5" fill="#35506b"/>
+<polyline points="840,350 790,350 790,300" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="790" cy="300" r="2.5" fill="#35506b"/>
+<polyline points="840,360 600,360" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="600" cy="360" r="2.5" fill="#35506b"/>
+<rect x="60" y="80" width="140" height="40" fill="#fff" stroke="#222"/><text x="130" y="104" text-anchor="middle">table1</text>
+<rect x="240" y="80" width="140" height="40" fill="#fff" stroke="#222"/><text x="310" y="104" text-anchor="middle">table2</text>
+<rect x="60" y="160" width="140" height="40" fill="#fff" stroke="#222"/><text x="130" y="184" text-anchor="middle">table3</text>
+<rect x="460" y="80" width="140" height="40" fill="#fff" stroke="#222"/><text x="530" y="104" text-anchor="middle">table4</text>
+<rect x="640" y="80" width="140" height="40" fill="#fff" stroke="#222"/><text x="710" y="104" text-anchor="middle">table5</text>
+<rect x="460" y="160" width="140" height="40" fill="#fff" stroke="#222"/><text x="530" y="184" text-anchor="middle">table6</text>
+<rect x="840" y="40" width="160" height="40" fill="#fff" stroke="#222"/><text x="920" y="64" text-anchor="middle">svc10</text>
+<rect x="40" y="340" width="160" height="40" fill="#fff" stroke="#222"/><text x="120" y="364" text-anchor="middle">svc7</text>
+<rect x="440" y="340" width="160" height="40" fill="#fff" stroke="#222"/><text x="520" y="364" text-anchor="middle">svc8</text>
+<rect x="840" y="340" width="160" height="40" fill="#fff" stroke="#222"/><text x="920" y="364" text-anchor="middle">svc9</text>
+</svg>

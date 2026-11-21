@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "width": 104,
+  "height": 42,
+  "boxes": [
+    { "id": "db1", "x": 4, "y": 4, "width": 36, "height": 26 },
+    { "id": "db1/table12", "parent": "db1", "x": 24, "y": 16, "width": 14, "height": 4 },
+    { "id": "db1/table13", "parent": "db1", "x": 6, "y": 8, "width": 14, "height": 4 },
+    { "id": "db1/table2", "parent": "db1", "x": 24, "y": 8, "width": 14, "height": 4 },
+    { "id": "db1/table3", "parent": "db1", "x": 6, "y": 16, "width": 14, "height": 4 },
+    { "id": "db2", "x": 44, "y": 4, "width": 36, "height": 26 },
+    { "id": "db2/table11", "parent": "db2", "x": 64, "y": 16, "width": 14, "height": 4 },
+    { "id": "db2/table5", "parent": "db2", "x": 64, "y": 8, "width": 14, "height": 4 },
+    { "id": "db2/table6", "parent": "db2", "x": 46, "y": 16, "width": 14, "height": 4 },
+    { "id": "svc7", "x": 4, "y": 34, "width": 16, "height": 4 },
+    { "id": "svc8", "x": 44, "y": 34, "width": 16, "height": 4 },
+    { "id": "svc9", "x": 84, "y": 34, "width": 16, "height": 4 }
+  ],
+  "links": [
+    { "id": "db2>db1", "from": "db2", "to": "db1", "points": [[44, 17], [40, 17]] },
+    { "id": "svc7>db1", "from": "svc7", "to": "db1", "points": [[12, 34], [12, 30]] },
+    { "id": "svc7>db2/table11", "from": "svc7", "to": "db2/table11", "points": [[19, 38], [19, 39], [65, 39], [65, 20]] },
+    { "id": "svc8>db1", "from": "svc8", "to": "db1", "points": [[44, 35], [39, 35], [39, 30]] },
+    { "id": "svc8>db1/table13", "from": "svc8", "to": "db1/table13", "points": [[45, 34], [45, 31], [41, 31], [41, 21], [21, 21], [21, 11], [20, 11]] },
+    { "id": "svc8>db2", "from": "svc8", "to": "db2", "points": [[52, 34], [52, 30]] },
+    { "id": "svc8>svc7", "from": "svc8", "to": "svc7", "points": [[44, 36], [20, 36]] },
+    { "id": "svc9>db1", "from": "svc9", "to": "db1", "points": [[87, 34], [87, 1], [36, 1], [36, 4]] },
+    { "id": "svc9>db1/table12", "from": "svc9", "to": "db1/table12", "points": [[85, 34], [85, 3], [39, 3], [39, 17], [38, 17]] },
+    { "id": "svc9>db1/table2", "from": "svc9", "to": "db1/table2", "points": [[86, 34], [86, 2], [37, 2], [37, 8]] },
+    { "id": "svc9>db2", "from": "svc9", "to": "db2", "points": [[84, 35], [79, 35], [79, 30]] },
+    { "id": "svc9>svc8", "from": "svc9", "to": "svc8", "points": [[84, 36], [60, 36]] }
+  ]
+}
