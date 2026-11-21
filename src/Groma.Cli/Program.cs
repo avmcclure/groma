@@ -88,7 +88,7 @@ static void Bench(string dir)
 
             var cells = new List<string> { Path.GetFileName(sheet), step.ToString(), graph.Boxes.Count.ToString(), graph.Links.Count.ToString() };
             if (layout is null)
-                cells.AddRange(new[] { "moved", "crossings", "through", "overlapping", "onTop", "", "", "", "labelClashes", "", "sheet", "", "", "ms" }
+                cells.AddRange(new[] { "moved", "crossings", "through", "overlapping", "onTop", "cuts", "bends", "length", "labelClashes", "labelsOverLines", "sheet", "", "", "ms" }
                     .Select(key => key == "" ? "—" : With("—", key)));
             else
             {
@@ -107,9 +107,9 @@ static void Bench(string dir)
                     With(previous is null ? "" : $"{r.Moved} of {r.Survivors}", "moved"),
                     With(r.Crossings.ToString(), "crossings"), With(r.ThroughBoxes.ToString(), "through"),
                     With(r.OverlappingBoxes.ToString(), "overlapping"), With(r.OnTop.ToString(), "onTop"),
-                    r.ContainerCuts.ToString(),
-                    $"{r.Bends} ({F(r.Links == 0 ? 0 : (double)r.Bends / r.Links, "0.0")}, {r.MaxBends})",
-                    r.Length.ToString(), With(r.LabelClashes.ToString(), "labelClashes"), r.LabelsOverLines.ToString(),
+                    With(r.ContainerCuts.ToString(), "cuts"),
+                    With($"{r.Bends} ({F(r.Links == 0 ? 0 : (double)r.Bends / r.Links, "0.0")}, {r.MaxBends})", "bends"),
+                    With(r.Length.ToString(), "length"), With(r.LabelClashes.ToString(), "labelClashes"), With(r.LabelsOverLines.ToString(), "labelsOverLines"),
                     With($"{r.Width}x{r.Height}", "sheet"), r.Area.ToString(),
                     F(Math.Max(r.Width, r.Height) == 0 ? 1 : (double)Math.Min(r.Width, r.Height) / Math.Max(r.Width, r.Height), "0.00"),
                     With(F(times[times.Count / 2], "0.0"), "ms"),

@@ -183,6 +183,25 @@ public class FixtureRuleTests
         Assert.Equal((0, 0, 0), (r.ThroughBoxes, r.Diagonals, r.DetachedEnds));
     }
 
+    [Theory]
+    [MemberData(nameof(Fixtures.SheetNames), MemberType = typeof(Fixtures))]
+    public void The_rules_also_hold_when_links_flow_top_to_bottom(string sheet)
+    {
+        var down = new Options { Direction = Direction.Down };
+        Layout? previous = null;
+        for (int step = 1; step <= Math.Min(Fixtures.Steps(sheet), 3); step++)
+        {
+            var graph = Fixtures.Graph(sheet, step);
+            Layout layout;
+            try { layout = previous is null ? Plan.Survey(graph, down) : Plan.Update(graph, previous, down); }
+            catch (ResurveyNeededException) { (layout, previous) = (Plan.Survey(graph, down), null); }
+            var r = Metrics.Measure(layout, previous);
+            Assert.Equal((0, 0, 0, 0, 0), (r.Moved, r.ThroughBoxes, r.OverlappingBoxes, r.Diagonals, r.DetachedEnds));
+            Assert.Equal(LayoutFile.Write(layout), LayoutFile.Write(previous is null ? Plan.Survey(graph, down) : Plan.Update(graph, previous, down)));
+            previous = layout;
+        }
+    }
+
     [Fact]
     public void No_fixture_scan_needs_a_re_survey()
     {

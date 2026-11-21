@@ -120,3 +120,23 @@ public class FreshLayoutTests
         AssertSound(layout);
     }
 }
+
+public class OutsideLinkTests
+{
+    [Fact]
+    public void Inside_a_container_boxes_fed_from_outside_face_the_way_links_come_in_and_boxes_feeding_out_face_the_way_they_leave()
+    {
+        var graph = new Graph(
+            [
+                new Box("app", 8, 4), new Box("report", 8, 4), new Box("db", 10, 2),
+                new Box("t1", 8, 4, "db"), new Box("t2", 8, 4, "db"), new Box("t3", 8, 4, "db"), new Box("t4", 8, 4, "db"),
+            ],
+            [new Link("in", "app", "t2"), new Link("out", "t3", "report")]);
+        var layout = Plan.Survey(graph);
+        int X(string id) => layout.Boxes.Single(b => b.Id == id).X;
+        Assert.True(X("t2") < X("t3"), "the box fed from outside should be on the left, the box feeding out on the right");
+        Assert.Equal(new[] { "t1", "t2", "t3", "t4" }.Min(X), X("t2"));
+        Assert.Equal(new[] { "t1", "t2", "t3", "t4" }.Max(X), X("t3"));
+        Assert.Equal(0, Metrics.Measure(layout).Crossings);
+    }
+}

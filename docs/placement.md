@@ -11,7 +11,7 @@ Containers are laid out innermost first, and each is then treated as one box by 
 
 Boxes with no links at their level are set out in a grid. Columns are a double gap apart, which leaves room for lines and labels.
 
-A link counts at a level only if both its ends are inside different members of that group. Links that leave a container do not shape its inside; this is the known cost of laying out containers one at a time.
+A link counts at a level only if both its ends are inside different members of that group. Links that leave a container shape its inside in one way only: among the boxes set out in a grid, those fed from outside take the side links come in from and those that feed out take the far side. Otherwise the inside of a container is laid out without regard to what is outside it; this is the known cost of laying out containers one at a time.
 
 Each container keeps one spare row along its bottom, so that boxes added later fit without the container having to grow.
 
@@ -19,7 +19,7 @@ Each container keeps one spare row along its bottom, so that boxes added later f
 
 No published method covers this case; these rules are the library's own (`src/Groma/Placer.cs`).
 
-- Every surviving box keeps its top-left corner. A box that holds nothing takes its size from the new graph; a container keeps its old outline and never shrinks.
+- Every surviving box keeps its top-left corner. A box that holds nothing takes its size from the new graph; a container keeps its old outline and never shrinks. If a box inside a container grew past the outline, the container grows right or down to hold it where its neighbours allow.
 - The sheet never shrinks and grows only right and down.
 - A new box on the open sheet goes to the free slot nearest the middle of the boxes it links to. Only slots lined up with a box already there are tried, which keeps new boxes in rows and columns with their neighbours. A new box with no links goes to the right of everything on the top row.
 - A new box inside an existing container takes the first free slot in reading order. If there is none, the container grows right, and failing that down, growing the container around it too if needed. If a neighbour blocks both, `Update` throws `ResurveyNeededException`.

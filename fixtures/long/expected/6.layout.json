@@ -11,8 +11,8 @@
     { "id": "db2", "x": 52, "y": 12, "width": 36, "height": 26 },
     { "id": "db2/table14", "parent": "db2", "x": 54, "y": 16, "width": 14, "height": 4 },
     { "id": "db2/table15", "parent": "db2", "x": 54, "y": 32, "width": 14, "height": 4 },
-    { "id": "db2/table5", "parent": "db2", "x": 72, "y": 16, "width": 14, "height": 4 },
-    { "id": "db2/table6", "parent": "db2", "x": 54, "y": 24, "width": 14, "height": 4 },
+    { "id": "db2/table5", "parent": "db2", "x": 54, "y": 24, "width": 14, "height": 4 },
+    { "id": "db2/table6", "parent": "db2", "x": 72, "y": 16, "width": 14, "height": 4 },
     { "id": "svc16", "x": 76, "y": 4, "width": 16, "height": 4 },
     { "id": "svc8", "x": 28, "y": 14, "width": 16, "height": 4 },
     { "id": "svc9", "x": 4, "y": 23, "width": 16, "height": 4 }
@@ -28,8 +28,8 @@
     { "id": "svc9>db1", "from": "svc9", "to": "db1", "points": [[16, 27], [16, 41], [118, 41], [118, 30]], "label": { "x": 62, "y": 40, "width": 6, "height": 2 } },
     { "id": "svc9>db1/table12", "from": "svc9", "to": "db1/table12", "points": [[18, 27], [18, 40], [117, 40], [117, 20]], "label": { "x": 69, "y": 39, "width": 5, "height": 2 } },
     { "id": "svc9>db1/table2", "from": "svc9", "to": "db1/table2", "points": [[19, 27], [19, 39], [99, 39], [99, 20]], "label": { "x": 60, "y": 38, "width": 4, "height": 2 } },
-    { "id": "svc9>db2", "from": "svc9", "to": "db2", "points": [[20, 26], [52, 26]], "label": { "x": 34, "y": 25, "width": 5, "height": 2 } },
-    { "id": "svc9>db2/table5", "from": "svc9", "to": "db2/table5", "points": [[20, 24], [53, 24], [53, 21], [73, 21], [73, 20]], "label": { "x": 46, "y": 23, "width": 4, "height": 2 } },
+    { "id": "svc9>db2", "from": "svc9", "to": "db2", "points": [[20, 24], [52, 24]], "label": { "x": 34, "y": 23, "width": 5, "height": 2 } },
+    { "id": "svc9>db2/table5", "from": "svc9", "to": "db2/table5", "points": [[20, 26], [54, 26]], "label": { "x": 35, "y": 25, "width": 4, "height": 2 } },
     { "id": "svc9>svc8", "from": "svc9", "to": "svc8", "points": [[19, 23], [19, 17], [28, 17]], "label": { "x": 19, "y": 16, "width": 4, "height": 2 } }
   ]
 }

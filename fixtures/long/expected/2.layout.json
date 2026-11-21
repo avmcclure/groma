@@ -10,8 +10,8 @@
     { "id": "db2", "x": 52, "y": 12, "width": 36, "height": 26 },
     { "id": "db2/table11", "parent": "db2", "x": 72, "y": 24, "width": 14, "height": 4 },
     { "id": "db2/table4", "parent": "db2", "x": 54, "y": 16, "width": 14, "height": 4 },
-    { "id": "db2/table5", "parent": "db2", "x": 72, "y": 16, "width": 14, "height": 4 },
-    { "id": "db2/table6", "parent": "db2", "x": 54, "y": 24, "width": 14, "height": 4 },
+    { "id": "db2/table5", "parent": "db2", "x": 54, "y": 24, "width": 14, "height": 4 },
+    { "id": "db2/table6", "parent": "db2", "x": 72, "y": 16, "width": 14, "height": 4 },
     { "id": "svc7", "x": 52, "y": 4, "width": 16, "height": 4 },
     { "id": "svc8", "x": 28, "y": 14, "width": 16, "height": 4 },
     { "id": "svc9", "x": 4, "y": 23, "width": 16, "height": 4 }

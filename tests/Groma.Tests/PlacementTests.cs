@@ -163,6 +163,52 @@ public class PlacementTests
     }
 
     [Fact]
+    public void A_surviving_box_that_grew_with_room_to_spare_keeps_its_corner_and_takes_its_new_size()
+    {
+        var before = Before(B("a", 4, 4, 8, 4), B("b", 30, 4, 8, 4));
+        var after = Plan.Update(G([Bx("a", 14, 6), Bx("b")], L("a", "b")), before);
+        Assert.Equal(B("a", 4, 4, 14, 6), At(after, "a"));
+        AssertSound(after, before);
+    }
+
+    [Fact]
+    public void A_surviving_box_that_shrank_keeps_its_corner_and_its_lines_reach_its_new_sides()
+    {
+        var before = Plan.Survey(G([Bx("a", 16, 6), Bx("b"), Bx("c")], L("a", "b"), L("c", "a")));
+        var after = Plan.Update(G([Bx("a", 6, 2), Bx("b"), Bx("c")], L("a", "b"), L("c", "a")), before);
+        Assert.Equal((At(before, "a").X, At(before, "a").Y, 6, 2), (At(after, "a").X, At(after, "a").Y, At(after, "a").Width, At(after, "a").Height));
+        AssertSound(after, before);
+    }
+
+    [Fact]
+    public void A_box_inside_a_container_that_grew_past_the_outline_makes_the_container_grow_too()
+    {
+        var before = Before(B("db", 4, 4, 14, 12), B("t", 6, 8, 8, 4, "db"));
+        var after = Plan.Update(G([Bx("db", 10, 2), Bx("t", 16, 4, "db")]), before);
+        Assert.Equal((6, 8, 16), (At(after, "t").X, At(after, "t").Y, At(after, "t").Width));
+        Assert.Equal((4, 4), (At(after, "db").X, At(after, "db").Y));
+        AssertSound(after, before);
+    }
+
+    [Fact]
+    public void A_box_that_becomes_a_container_keeps_its_corner_and_grows_round_its_new_contents()
+    {
+        var before = Before(B("a", 4, 4, 8, 4), B("b", 40, 4, 8, 4));
+        var after = Plan.Update(G([Bx("a", 8, 2), Bx("inner", parent: "a"), Bx("b")], L("inner", "b")), before);
+        Assert.Equal((4, 4), (At(after, "a").X, At(after, "a").Y));
+        AssertSound(after, before);
+    }
+
+    [Fact]
+    public void A_container_that_lost_everything_inside_it_is_kept_as_a_plain_box_at_its_corner()
+    {
+        var before = Before(B("db", 4, 4, 30, 20), B("t", 6, 8, 8, 4, "db"), B("b", 44, 4, 8, 4));
+        var after = Plan.Update(G([Bx("db", 10, 2), Bx("b")], L("b", "db")), before);
+        Assert.Equal(B("db", 4, 4, 10, 2), At(after, "db"));
+        AssertSound(after, before);
+    }
+
+    [Fact]
     public void A_surviving_box_moved_to_another_container_asks_for_a_re_survey()
     {
         var before = Before(B("db1", 4, 4, 14, 12), B("t", 6, 8, 8, 4, "db1"), B("db2", 30, 4, 14, 12), B("u", 32, 8, 8, 4, "db2"));

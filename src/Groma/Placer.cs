@@ -40,6 +40,16 @@ sealed class Placer
             if (was.TryGetValue(b.Id, out var p))
                 at[b.Id] = kids[b.Id].Count > 0 ? p.Rect : new Rect(p.X, p.Y, b.Width, b.Height);
 
+        // A surviving box that grew past its container's outline pushes the outline out, if the neighbours allow.
+        foreach (var b in graph.Boxes.Where(b => b.Parent is not null && at.ContainsKey(b.Id) && at.ContainsKey(b.Parent)))
+        {
+            var (r, room) = (at[b.Id], Interior(b.Parent!));
+            if (r.Right <= room.Right && r.Bottom <= room.Bottom) continue;
+            var grown = new Dictionary<string, Rect>(StringComparer.Ordinal);
+            if (Grow(b.Parent!, Stretch(at[b.Parent!], r.Right + Pad, r.Bottom + Pad), grown))
+                foreach (var (id, bigger) in grown) at[id] = bigger;
+        }
+
         // A new box whose parent is also new arrives inside its parent's block; the rest are placed one by one.
         foreach (var b in graph.Boxes)
             if (!at.ContainsKey(b.Id) && (b.Parent is null || was.ContainsKey(b.Parent)))
@@ -74,10 +84,15 @@ sealed class Placer
         for (int i = 0; i < blocks.Count; i++)
             foreach (var (id, _) in blocks[i].Items) memberOf[id] = i;
         var links = new List<(int, int)>();
+        var lean = new int[blocks.Count];
         foreach (var l in graph.Links)
-            if (l.From is not null && l.To is not null && memberOf.TryGetValue(l.From, out int a) && memberOf.TryGetValue(l.To, out int b))
-                links.Add((a, b));
-        var spots = Layered.Arrange([.. blocks.Select(b => (b.W, b.H))], links, options);
+        {
+            bool fromHere = memberOf.TryGetValue(l.From ?? "", out int a), toHere = memberOf.TryGetValue(l.To ?? "", out int b);
+            if (fromHere && toHere) links.Add((a, b));
+            else if (fromHere) lean[a]++;
+            else if (toHere) lean[b]--;
+        }
+        var spots = Layered.Arrange([.. blocks.Select(b => (b.W, b.H))], links, lean, options);
 
         var items = new List<(string, Rect)>();
         int w = 0, h = 0;

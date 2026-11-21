@@ -7,7 +7,7 @@
 <polyline points="510,240 510,250 600,250" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="600" cy="250" r="2.5" fill="#35506b"/>
 <polyline points="510,200 510,150 1270,150 1270,530" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1270" cy="530" r="2.5" fill="#35506b"/>
 <polyline points="520,230 970,230 970,530" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="970" cy="530" r="2.5" fill="#35506b"/>
-<polyline points="520,990 550,990 550,970 870,970 870,180 760,180" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="760" cy="180" r="2.5" fill="#35506b"/>
+<polyline points="520,990 610,990 610,970 870,970 870,180 760,180" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="760" cy="180" r="2.5" fill="#35506b"/>
 <polyline points="510,980 510,950 770,950 770,510 740,510" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="740" cy="510" r="2.5" fill="#35506b"/>
 <polyline points="520,390 610,390 610,400" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="610" cy="400" r="2.5" fill="#35506b"/>
 <polyline points="340,380 310,380 310,70 610,70 610,80" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="610" cy="80" r="2.5" fill="#35506b"/>
@@ -28,13 +28,13 @@
 <polyline points="240,610 320,610" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="320" cy="610" r="2.5" fill="#35506b"/>
 <polyline points="210,600 210,230 340,230" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="230" r="2.5" fill="#35506b"/>
 <polyline points="240,630 330,630 330,970 350,970 350,980" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="350" cy="980" r="2.5" fill="#35506b"/>
-<polyline points="50,640 50,1110 570,1110 570,1020" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="570" cy="1020" r="2.5" fill="#35506b"/>
 <polyline points="70,640 70,1070 340,1070" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="1070" r="2.5" fill="#35506b"/>
+<polyline points="50,640 50,1110 630,1110 630,1020" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="630" cy="1020" r="2.5" fill="#35506b"/>
 <polyline points="230,600 230,390 340,390" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="390" r="2.5" fill="#35506b"/>
 <rect x="340" y="200" width="180" height="40" fill="#fff" stroke="#222"/><text x="430" y="224" text-anchor="middle">sp_gbl_savedsearch_d</text>
 <rect x="340" y="980" width="180" height="40" fill="#fff" stroke="#222"/><text x="430" y="1004" text-anchor="middle">sp_gbl_savedsearch_l</text>
-<rect x="560" y="980" width="240" height="40" fill="#fff" stroke="#222"/><text x="680" y="1004" text-anchor="middle">sp_gbl_savedsearch_l_shared</text>
-<rect x="340" y="1060" width="180" height="40" fill="#fff" stroke="#222"/><text x="430" y="1084" text-anchor="middle">sp_gbl_savedsearch_s</text>
+<rect x="340" y="1060" width="240" height="40" fill="#fff" stroke="#222"/><text x="460" y="1084" text-anchor="middle">sp_gbl_savedsearch_l_shared</text>
+<rect x="620" y="980" width="180" height="40" fill="#fff" stroke="#222"/><text x="710" y="1004" text-anchor="middle">sp_gbl_savedsearch_s</text>
 <rect x="340" y="360" width="180" height="40" fill="#fff" stroke="#222"/><text x="430" y="384" text-anchor="middle">sp_gbl_savedsearch_u</text>
 <rect x="600" y="400" width="160" height="40" fill="#fff" stroke="#222"/><text x="680" y="424" text-anchor="middle">cic_securitylevel</text>
 <rect x="600" y="80" width="240" height="40" fill="#fff" stroke="#222"/><text x="720" y="104" text-anchor="middle">cic_securitylevel_savedsearch</text>
@@ -78,7 +78,7 @@
 <rect x="270" y="600" width="30" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="210" y="220" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="280" y="620" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="100" y="1100" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="70" y="1060" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="130" y="1100" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="230" y="380" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 </svg>

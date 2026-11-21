@@ -25,14 +25,14 @@
 <polyline points="240,620 320,620" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="320" cy="620" r="2.5" fill="#35506b"/>
 <polyline points="210,600 210,230 340,230" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="230" r="2.5" fill="#35506b"/>
 <polyline points="230,640 230,990 340,990" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="990" r="2.5" fill="#35506b"/>
-<polyline points="240,630 250,630 250,970 570,970 570,980" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="570" cy="980" r="2.5" fill="#35506b"/>
 <polyline points="210,640 210,1070 340,1070" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="1070" r="2.5" fill="#35506b"/>
+<polyline points="240,630 250,630 250,970 630,970 630,980" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="630" cy="980" r="2.5" fill="#35506b"/>
 <polyline points="230,600 230,390 340,390" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="390" r="2.5" fill="#35506b"/>
 <rect x="600" y="320" width="200" height="40" fill="#fff" stroke="#222"/><text x="700" y="344" text-anchor="middle">fn_gbl_parseintidlist</text>
 <rect x="340" y="200" width="180" height="40" fill="#fff" stroke="#222"/><text x="430" y="224" text-anchor="middle">sp_gbl_savedsearch_d</text>
 <rect x="340" y="980" width="180" height="40" fill="#fff" stroke="#222"/><text x="430" y="1004" text-anchor="middle">sp_gbl_savedsearch_l</text>
-<rect x="560" y="980" width="240" height="40" fill="#fff" stroke="#222"/><text x="680" y="1004" text-anchor="middle">sp_gbl_savedsearch_l_shared</text>
-<rect x="340" y="1060" width="180" height="40" fill="#fff" stroke="#222"/><text x="430" y="1084" text-anchor="middle">sp_gbl_savedsearch_s</text>
+<rect x="340" y="1060" width="240" height="40" fill="#fff" stroke="#222"/><text x="460" y="1084" text-anchor="middle">sp_gbl_savedsearch_l_shared</text>
+<rect x="620" y="980" width="180" height="40" fill="#fff" stroke="#222"/><text x="710" y="1004" text-anchor="middle">sp_gbl_savedsearch_s</text>
 <rect x="340" y="360" width="180" height="40" fill="#fff" stroke="#222"/><text x="430" y="384" text-anchor="middle">sp_gbl_savedsearch_u</text>
 <rect x="600" y="400" width="160" height="40" fill="#fff" stroke="#222"/><text x="680" y="424" text-anchor="middle">cic_securitylevel</text>
 <rect x="600" y="80" width="240" height="40" fill="#fff" stroke="#222"/><text x="720" y="104" text-anchor="middle">cic_securitylevel_savedsearch</text>
@@ -71,7 +71,7 @@
 <rect x="270" y="610" width="30" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="210" y="220" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="230" y="980" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="250" y="960" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="210" y="1060" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="250" y="960" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="230" y="380" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 </svg>

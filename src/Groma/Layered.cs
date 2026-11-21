@@ -12,7 +12,8 @@ static class Layered
 {
     const int Sweeps = 24; // the cap Graphviz dot uses
 
-    public static (int X, int Y)[] Arrange((int W, int H)[] size, IReadOnlyList<(int From, int To)> links, Options o)
+    /// <param name="lean">For each box, links it sends out of the group minus links it receives from outside.</param>
+    public static (int X, int Y)[] Arrange((int W, int H)[] size, IReadOnlyList<(int From, int To)> links, int[] lean, Options o)
     {
         int n = size.Length, gap = o.BoxGap;
         bool right = o.Direction == Direction.Right;
@@ -193,21 +194,23 @@ static class Layered
             crossEnd = linked.Max(v => cross[v] + Cross(v)) + gap;
         }
 
-        // ---- boxes with no links at this level: a plain grid after everything else
-        int perRow = 1;
-        while (perRow * perRow < loose.Count) perRow++;
-        for (int i = 0, rowStart = crossEnd; i < loose.Count; i += perRow)
+        // ---- boxes with no links at this level: a plain grid after everything else. Links that leave the
+        // group still count for something here: boxes fed from outside take the side links come in from,
+        // and boxes that feed out take the far side.
+        loose = [.. loose.OrderBy(v => Math.Sign(lean[v])).ThenBy(v => v)];
+        int across = 1;
+        while (across * across < loose.Count) across++;
+        int deep = (loose.Count + across - 1) / across;
+        for (int k = 0, offset = 0; k * deep < loose.Count; k++)
         {
-            var row = loose.Skip(i).Take(perRow).ToList();
-            for (int k = 0; k < row.Count; k++)
+            var line = loose.Skip(k * deep).Take(deep).ToList();
+            int place = crossEnd;
+            foreach (int v in line)
             {
-                // Columns of the grid are as wide as the widest box in that column of any row.
-                int offset = 0;
-                for (int j = 0; j < k; j++)
-                    offset += loose.Where((_, index) => index % perRow == j).Max(Main) + gap;
-                (main[row[k]], cross[row[k]]) = (offset, rowStart);
+                (main[v], cross[v]) = (offset, place);
+                place += Cross(v) + gap;
             }
-            rowStart += row.Max(Cross) + gap;
+            offset += line.Max(Main) + gap;
         }
 
         return [.. Enumerable.Range(0, n).Select(v => right ? (main[v], cross[v]) : (cross[v], main[v]))];

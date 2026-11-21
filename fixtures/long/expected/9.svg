@@ -10,15 +10,15 @@
 <polyline points="560,70 470,70 470,220" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="470" cy="220" r="2.5" fill="#35506b"/>
 <polyline points="720,430 970,430 970,150 1170,150 1170,160" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1170" cy="160" r="2.5" fill="#35506b"/>
 <polyline points="680,420 680,380" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="680" cy="380" r="2.5" fill="#35506b"/>
-<polyline points="560,430 180,430 180,270" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="180" cy="270" r="2.5" fill="#35506b"/>
+<polyline points="560,430 170,430 170,270" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="170" cy="270" r="2.5" fill="#35506b"/>
 <polyline points="430,140 430,10 1180,10 1180,40" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1180" cy="40" r="2.5" fill="#35506b"/>
 <polyline points="440,150 450,150 450,20 1170,20 1170,80" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1170" cy="80" r="2.5" fill="#35506b"/>
 <polyline points="310,180 310,270 520,270" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="270" r="2.5" fill="#35506b"/>
-<polyline points="130,270 130,490 1190,490 1190,300" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1190" cy="300" r="2.5" fill="#35506b"/>
-<polyline points="150,270 150,480 1170,480 1170,200" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1170" cy="200" r="2.5" fill="#35506b"/>
-<polyline points="170,270 170,470 990,470 990,200" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="990" cy="200" r="2.5" fill="#35506b"/>
-<polyline points="190,270 190,300 520,300" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="300" r="2.5" fill="#35506b"/>
-<polyline points="200,260 290,260 290,280 530,280 530,190 720,190" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="720" cy="190" r="2.5" fill="#35506b"/>
+<polyline points="120,270 120,490 1190,490 1190,300" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1190" cy="300" r="2.5" fill="#35506b"/>
+<polyline points="140,270 140,480 1170,480 1170,200" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1170" cy="200" r="2.5" fill="#35506b"/>
+<polyline points="160,270 160,470 990,470 990,200" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="990" cy="200" r="2.5" fill="#35506b"/>
+<polyline points="180,270 180,310 520,310" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="310" r="2.5" fill="#35506b"/>
+<polyline points="190,270 190,290 550,290 550,280" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="550" cy="280" r="2.5" fill="#35506b"/>
 <polyline points="200,240 290,240 290,180" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="290" cy="180" r="2.5" fill="#35506b"/>
 <rect x="1160" y="160" width="140" height="40" fill="#fff" stroke="#222"/><text x="1230" y="184" text-anchor="middle">table12</text>
 <rect x="1160" y="80" width="140" height="40" fill="#fff" stroke="#222"/><text x="1230" y="104" text-anchor="middle">table13</text>
@@ -26,8 +26,8 @@
 <rect x="980" y="80" width="140" height="40" fill="#fff" stroke="#222"/><text x="1050" y="104" text-anchor="middle">table3</text>
 <rect x="720" y="240" width="140" height="40" fill="#fff" stroke="#222"/><text x="790" y="264" text-anchor="middle">table18</text>
 <rect x="540" y="320" width="140" height="40" fill="#fff" stroke="#222"/><text x="610" y="344" text-anchor="middle">table19</text>
-<rect x="720" y="160" width="140" height="40" fill="#fff" stroke="#222"/><text x="790" y="184" text-anchor="middle">table5</text>
-<rect x="540" y="240" width="140" height="40" fill="#fff" stroke="#222"/><text x="610" y="264" text-anchor="middle">table6</text>
+<rect x="540" y="240" width="140" height="40" fill="#fff" stroke="#222"/><text x="610" y="264" text-anchor="middle">table5</text>
+<rect x="720" y="160" width="140" height="40" fill="#fff" stroke="#222"/><text x="790" y="184" text-anchor="middle">table6</text>
 <rect x="760" y="40" width="160" height="40" fill="#fff" stroke="#222"/><text x="840" y="64" text-anchor="middle">svc16</text>
 <rect x="320" y="220" width="160" height="40" fill="#fff" stroke="#222"/><text x="400" y="244" text-anchor="middle">svc20</text>
 <rect x="560" y="40" width="160" height="40" fill="#ffe9a8" stroke="#222"/><text x="640" y="64" text-anchor="middle">svc21</text>
@@ -49,7 +49,7 @@
 <rect x="610" y="480" width="60" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="670" y="470" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="590" y="460" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="320" y="290" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="470" y="270" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="310" y="300" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="340" y="280" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="250" y="230" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 </svg>
