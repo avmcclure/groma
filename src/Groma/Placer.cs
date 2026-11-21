@@ -65,24 +65,25 @@ sealed class Placer
         return (w, h, items);
     }
 
-    // Stand-in arrangement: a near-square grid in id order. The layered method replaces it for fresh layouts.
+    // Lays a group of siblings out among themselves. A link counts at this level when its two ends lie in
+    // two different members of the group, however deep inside them; links that leave the group do not.
     (int W, int H, List<(string Id, Rect R)> Items) Arrange(List<string> members)
     {
         var blocks = members.Select(Block).ToList();
-        int cols = 1;
-        while (cols * cols < blocks.Count) cols++;
-        var colW = new int[cols];
-        var rowH = new int[(blocks.Count + cols - 1) / Math.Max(cols, 1) + 1];
+        var memberOf = new Dictionary<string, int>(StringComparer.Ordinal);
         for (int i = 0; i < blocks.Count; i++)
-        {
-            colW[i % cols] = Math.Max(colW[i % cols], blocks[i].W);
-            rowH[i / cols] = Math.Max(rowH[i / cols], blocks[i].H);
-        }
+            foreach (var (id, _) in blocks[i].Items) memberOf[id] = i;
+        var links = new List<(int, int)>();
+        foreach (var l in graph.Links)
+            if (l.From is not null && l.To is not null && memberOf.TryGetValue(l.From, out int a) && memberOf.TryGetValue(l.To, out int b))
+                links.Add((a, b));
+        var spots = Layered.Arrange([.. blocks.Select(b => (b.W, b.H))], links, options);
+
         var items = new List<(string, Rect)>();
         int w = 0, h = 0;
         for (int i = 0; i < blocks.Count; i++)
         {
-            int x = colW.Take(i % cols).Sum(c => c + Gap), y = rowH.Take(i / cols).Sum(r => r + Gap);
+            var (x, y) = spots[i];
             items.AddRange(blocks[i].Items.Select(it => (it.Id, it.R with { X = it.R.X + x, Y = it.R.Y + y })));
             (w, h) = (Math.Max(w, x + blocks[i].W), Math.Max(h, y + blocks[i].H));
         }

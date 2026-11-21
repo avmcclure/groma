@@ -8,14 +8,14 @@
   "overlappingBoxes": 0,
   "onTop": 0,
   "containerCuts": 0,
-  "bends": 8,
-  "maxBends": 3,
-  "length": 330,
-  "labelClashes": 1,
+  "bends": 10,
+  "maxBends": 2,
+  "length": 332,
+  "labelClashes": 0,
   "labelsOverLines": 0,
   "diagonals": 0,
   "detachedEnds": 0,
-  "width": 104,
-  "height": 42,
-  "area": 4368
+  "width": 140,
+  "height": 43,
+  "area": 6020
 }
