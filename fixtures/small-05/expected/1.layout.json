@@ -10,8 +10,8 @@
     { "id": "svc4", "x": 4, "y": 26, "width": 16, "height": 4 }
   ],
   "links": [
-    { "id": "svc3>db1", "from": "svc3", "to": "db1", "points": [[44, 6], [40, 6]] },
-    { "id": "svc4>db1", "from": "svc4", "to": "db1", "points": [[12, 26], [12, 22]] },
-    { "id": "svc4>svc3", "from": "svc4", "to": "svc3", "points": [[20, 27], [45, 27], [45, 8]] }
+    { "id": "svc3>db1", "from": "svc3", "to": "db1", "points": [[44, 6], [40, 6]], "label": { "x": 38, "y": 5, "width": 6, "height": 2 } },
+    { "id": "svc4>db1", "from": "svc4", "to": "db1", "points": [[12, 26], [12, 22]], "label": { "x": 9, "y": 23, "width": 6, "height": 2 } },
+    { "id": "svc4>svc3", "from": "svc4", "to": "svc3", "points": [[20, 27], [45, 27], [45, 8]], "label": { "x": 40, "y": 26, "width": 4, "height": 2 } }
   ]
 }

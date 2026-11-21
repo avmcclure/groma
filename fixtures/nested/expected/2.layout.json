@@ -23,20 +23,20 @@
     { "id": "svc9", "x": 172, "y": 54, "width": 16, "height": 4 }
   ],
   "links": [
-    { "id": "db2>db1", "from": "db2", "to": "db1", "points": [[91, 8], [91, 7], [41, 7], [41, 8]] },
-    { "id": "db3>db2", "from": "db3", "to": "db2", "points": [[82, 17], [90, 17]] },
-    { "id": "db4>db2", "from": "db4", "to": "db2", "points": [[130, 17], [126, 17]] },
-    { "id": "svc10>db1", "from": "svc10", "to": "db1", "points": [[174, 4], [174, 2], [40, 2], [40, 8]] },
-    { "id": "svc10>db2", "from": "svc10", "to": "db2", "points": [[172, 7], [125, 7], [125, 8]] },
-    { "id": "svc10>db3/table6", "from": "svc10", "to": "db3/table6", "points": [[173, 4], [173, 3], [79, 3], [79, 12]] },
-    { "id": "svc10>svc9", "from": "svc10", "to": "svc9", "points": [[180, 8], [180, 54]] },
-    { "id": "svc11>db3", "from": "svc11", "to": "db3", "points": [[20, 55], [47, 55], [47, 26]] },
-    { "id": "svc11>db3/table6", "from": "svc11", "to": "db3/table6", "points": [[20, 56], [67, 56], [67, 16]] },
-    { "id": "svc11>db4", "from": "svc11", "to": "db4", "points": [[20, 57], [87, 57], [87, 28], [131, 28], [131, 26]] },
-    { "id": "svc11>svc9", "from": "svc11", "to": "svc9", "points": [[19, 58], [19, 59], [173, 59], [173, 58]] },
-    { "id": "svc12>svc9", "from": "svc12", "to": "svc9", "points": [[104, 56], [172, 56]] },
-    { "id": "svc9>db1", "from": "svc9", "to": "db1", "points": [[174, 58], [174, 60], [3, 60], [3, 25], [6, 25]] },
-    { "id": "svc9>db2", "from": "svc9", "to": "db2", "points": [[172, 55], [125, 55], [125, 26]] },
-    { "id": "svc9>db2/table13", "from": "svc9", "to": "db2/table13", "points": [[173, 54], [173, 27], [127, 27], [127, 23], [106, 23]] }
+    { "id": "db2>db1", "from": "db2", "to": "db1", "points": [[91, 8], [91, 7], [41, 7], [41, 8]], "label": { "x": 64, "y": 6, "width": 5, "height": 2 } },
+    { "id": "db3>db2", "from": "db3", "to": "db2", "points": [[82, 17], [90, 17]], "label": { "x": 84, "y": 16, "width": 5, "height": 2 } },
+    { "id": "db4>db2", "from": "db4", "to": "db2", "points": [[130, 17], [126, 17]], "label": { "x": 126, "y": 16, "width": 5, "height": 2 } },
+    { "id": "svc10>db1", "from": "svc10", "to": "db1", "points": [[174, 4], [174, 2], [40, 2], [40, 8]], "label": { "x": 103, "y": 1, "width": 5, "height": 2 } },
+    { "id": "svc10>db2", "from": "svc10", "to": "db2", "points": [[172, 7], [125, 7], [125, 8]], "label": { "x": 146, "y": 6, "width": 5, "height": 2 } },
+    { "id": "svc10>db3/table6", "from": "svc10", "to": "db3/table6", "points": [[173, 4], [173, 3], [79, 3], [79, 12]], "label": { "x": 120, "y": 2, "width": 4, "height": 2 } },
+    { "id": "svc10>svc9", "from": "svc10", "to": "svc9", "points": [[180, 8], [180, 54]], "label": { "x": 178, "y": 30, "width": 4, "height": 2 } },
+    { "id": "svc11>db3", "from": "svc11", "to": "db3", "points": [[20, 55], [47, 55], [47, 26]], "label": { "x": 42, "y": 54, "width": 5, "height": 2 } },
+    { "id": "svc11>db3/table6", "from": "svc11", "to": "db3/table6", "points": [[20, 56], [67, 56], [67, 16]], "label": { "x": 61, "y": 55, "width": 4, "height": 2 } },
+    { "id": "svc11>db4", "from": "svc11", "to": "db4", "points": [[20, 57], [87, 57], [87, 28], [131, 28], [131, 26]], "label": { "x": 82, "y": 56, "width": 5, "height": 2 } },
+    { "id": "svc11>svc9", "from": "svc11", "to": "svc9", "points": [[19, 58], [19, 59], [173, 59], [173, 58]], "label": { "x": 94, "y": 58, "width": 4, "height": 2 } },
+    { "id": "svc12>svc9", "from": "svc12", "to": "svc9", "points": [[104, 56], [172, 56]], "label": { "x": 136, "y": 55, "width": 4, "height": 2 } },
+    { "id": "svc9>db1", "from": "svc9", "to": "db1", "points": [[174, 58], [174, 60], [3, 60], [3, 25], [6, 25]], "label": { "x": 68, "y": 59, "width": 6, "height": 2 } },
+    { "id": "svc9>db2", "from": "svc9", "to": "db2", "points": [[172, 55], [125, 55], [125, 26]], "label": { "x": 131, "y": 54, "width": 5, "height": 2 } },
+    { "id": "svc9>db2/table13", "from": "svc9", "to": "db2/table13", "points": [[173, 54], [173, 27], [127, 27], [127, 23], [106, 23]], "label": { "x": 149, "y": 26, "width": 5, "height": 2 } }
   ]
 }

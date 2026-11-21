@@ -11,7 +11,7 @@
   "bends": 19,
   "maxBends": 5,
   "length": 634,
-  "labelClashes": 0,
+  "labelClashes": 1,
   "labelsOverLines": 0,
   "diagonals": 0,
   "detachedEnds": 0,

@@ -43,7 +43,8 @@ public static class Plan
         var router = new Router(layout.Width, layout.Height, layout.Boxes);
         foreach (var l in layout.Links) router.Occupy(l.Points);
         var routes = router.RouteAll(extra);
-        return layout with { Links = Sorted(layout.Links.Concat(extra.Select(l => ToRoute(l, routes[l.Id])))) };
+        var labels = Labels.Place(layout.Width, layout.Height, layout.Boxes, [.. extra.Select(l => (l, (IReadOnlyList<Point>)routes[l.Id]))], layout.Links);
+        return layout with { Links = Sorted(layout.Links.Concat(extra.Select(l => ToRoute(l, routes[l.Id], labels)))) };
     }
 
     // Input order carries no meaning: everything downstream sees boxes and links in id order.
@@ -62,10 +63,12 @@ public static class Plan
         int width = Math.Max(previous?.Width ?? 0, boxes.Select(b => b.X + b.Width + o.BoxGap).DefaultIfEmpty(0).Max());
         int height = Math.Max(previous?.Height ?? 0, boxes.Select(b => b.Y + b.Height + o.BoxGap).DefaultIfEmpty(0).Max());
         var routes = new Router(width, height, boxes).RouteAll(g.Links);
-        return new Layout(width, height, boxes, [.. g.Links.Select(l => ToRoute(l, routes[l.Id]))]);
+        var labels = Labels.Place(width, height, boxes, [.. g.Links.Select(l => (l, (IReadOnlyList<Point>)routes[l.Id]))], []);
+        return new Layout(width, height, boxes, [.. g.Links.Select(l => ToRoute(l, routes[l.Id], labels))]);
     }
 
-    static Route ToRoute(Link l, List<Point> points) => new(l.Id, l.From, l.To, points, l.FromEdge, l.ToEdge);
+    static Route ToRoute(Link l, List<Point> points, Dictionary<string, Rect> labels) =>
+        new(l.Id, l.From, l.To, points, l.FromEdge, l.ToEdge, labels.TryGetValue(l.Id, out var label) ? label : null);
 
     static List<T> Sorted<T>(IEnumerable<T> items) where T : class =>
         [.. items.OrderBy(i => i is Route r ? r.Id : ((PlacedBox)(object)i).Id, StringComparer.Ordinal)];

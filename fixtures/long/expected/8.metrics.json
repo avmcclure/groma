@@ -12,7 +12,7 @@
   "maxBends": 5,
   "length": 573,
   "labelClashes": 0,
-  "labelsOverLines": 0,
+  "labelsOverLines": 1,
   "diagonals": 0,
   "detachedEnds": 0,
   "width": 104,

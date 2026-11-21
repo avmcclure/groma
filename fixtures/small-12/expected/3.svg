@@ -25,4 +25,15 @@
 <rect x="40" y="340" width="160" height="40" fill="#fff" stroke="#222"/><text x="120" y="364" text-anchor="middle">svc7</text>
 <rect x="440" y="340" width="160" height="40" fill="#fff" stroke="#222"/><text x="520" y="364" text-anchor="middle">svc8</text>
 <rect x="840" y="340" width="160" height="40" fill="#fff" stroke="#222"/><text x="920" y="364" text-anchor="middle">svc9</text>
+<rect x="600" y="90" width="70" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="400" y="160" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="140" y="310" width="60" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="200" y="340" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="100" y="280" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="500" y="310" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="430" y="300" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="300" y="350" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="550" y="380" width="60" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="620" y="340" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="700" y="350" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 </svg>

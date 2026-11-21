@@ -19,19 +19,19 @@
     { "id": "svc9", "x": 84, "y": 34, "width": 16, "height": 4 }
   ],
   "links": [
-    { "id": "db2>db1", "from": "db2", "to": "db1", "points": [[44, 17], [40, 17]] },
-    { "id": "svc16>db2", "from": "svc16", "to": "db2", "points": [[40, 35], [43, 35], [43, 32], [46, 32], [46, 30]] },
-    { "id": "svc16>db2/table17", "from": "svc16", "to": "db2/table17", "points": [[39, 34], [39, 31], [45, 31], [45, 11], [46, 11]] },
-    { "id": "svc16>db2/table18", "from": "svc16", "to": "db2/table18", "points": [[39, 38], [39, 39], [65, 39], [65, 20]] },
-    { "id": "svc8>db1", "from": "svc8", "to": "db1", "points": [[44, 36], [41, 36], [41, 29], [40, 29]] },
-    { "id": "svc8>db1/table13", "from": "svc8", "to": "db1/table13", "points": [[45, 38], [45, 40], [21, 40], [21, 11], [20, 11]] },
-    { "id": "svc8>db2", "from": "svc8", "to": "db2", "points": [[52, 34], [52, 30]] },
-    { "id": "svc9>db1", "from": "svc9", "to": "db1", "points": [[85, 38], [85, 41], [20, 41], [20, 30]] },
-    { "id": "svc9>db1/table12", "from": "svc9", "to": "db1/table12", "points": [[87, 34], [87, 3], [39, 3], [39, 17], [38, 17]] },
-    { "id": "svc9>db1/table2", "from": "svc9", "to": "db1/table2", "points": [[88, 34], [88, 2], [37, 2], [37, 8]] },
-    { "id": "svc9>db2", "from": "svc9", "to": "db2", "points": [[84, 35], [79, 35], [79, 30]] },
-    { "id": "svc9>db2/table17", "from": "svc9", "to": "db2/table17", "points": [[86, 34], [86, 7], [59, 7], [59, 8]] },
-    { "id": "svc9>db2/table5", "from": "svc9", "to": "db2/table5", "points": [[85, 34], [85, 11], [78, 11]] },
-    { "id": "svc9>svc8", "from": "svc9", "to": "svc8", "points": [[84, 36], [60, 36]] }
+    { "id": "db2>db1", "from": "db2", "to": "db1", "points": [[44, 17], [40, 17]], "label": { "x": 40, "y": 16, "width": 5, "height": 2 } },
+    { "id": "svc16>db2", "from": "svc16", "to": "db2", "points": [[40, 35], [43, 35], [43, 32], [46, 32], [46, 30]], "label": { "x": 43, "y": 31, "width": 6, "height": 2 } },
+    { "id": "svc16>db2/table17", "from": "svc16", "to": "db2/table17", "points": [[39, 34], [39, 31], [45, 31], [45, 11], [46, 11]], "label": { "x": 37, "y": 31, "width": 4, "height": 2 } },
+    { "id": "svc16>db2/table18", "from": "svc16", "to": "db2/table18", "points": [[39, 38], [39, 39], [65, 39], [65, 20]], "label": { "x": 59, "y": 38, "width": 5, "height": 2 } },
+    { "id": "svc8>db1", "from": "svc8", "to": "db1", "points": [[44, 36], [41, 36], [41, 29], [40, 29]], "label": { "x": 39, "y": 29, "width": 5, "height": 2 } },
+    { "id": "svc8>db1/table13", "from": "svc8", "to": "db1/table13", "points": [[45, 38], [45, 40], [21, 40], [21, 11], [20, 11]], "label": { "x": 22, "y": 39, "width": 5, "height": 2 } },
+    { "id": "svc8>db2", "from": "svc8", "to": "db2", "points": [[52, 34], [52, 30]], "label": { "x": 50, "y": 31, "width": 5, "height": 2 } },
+    { "id": "svc9>db1", "from": "svc9", "to": "db1", "points": [[85, 38], [85, 41], [20, 41], [20, 30]], "label": { "x": 46, "y": 40, "width": 6, "height": 2 } },
+    { "id": "svc9>db1/table12", "from": "svc9", "to": "db1/table12", "points": [[87, 34], [87, 3], [39, 3], [39, 17], [38, 17]], "label": { "x": 69, "y": 2, "width": 5, "height": 2 } },
+    { "id": "svc9>db1/table2", "from": "svc9", "to": "db1/table2", "points": [[88, 34], [88, 2], [37, 2], [37, 8]], "label": { "x": 74, "y": 1, "width": 4, "height": 2 } },
+    { "id": "svc9>db2", "from": "svc9", "to": "db2", "points": [[84, 35], [79, 35], [79, 30]], "label": { "x": 77, "y": 33, "width": 5, "height": 2 } },
+    { "id": "svc9>db2/table17", "from": "svc9", "to": "db2/table17", "points": [[86, 34], [86, 7], [59, 7], [59, 8]], "label": { "x": 81, "y": 6, "width": 5, "height": 2 } },
+    { "id": "svc9>db2/table5", "from": "svc9", "to": "db2/table5", "points": [[85, 34], [85, 11], [78, 11]], "label": { "x": 81, "y": 10, "width": 4, "height": 2 } },
+    { "id": "svc9>svc8", "from": "svc9", "to": "svc8", "points": [[84, 36], [60, 36]], "label": { "x": 70, "y": 35, "width": 4, "height": 2 } }
   ]
 }

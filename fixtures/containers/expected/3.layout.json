@@ -17,13 +17,13 @@
     { "id": "svc9", "x": 84, "y": 34, "width": 16, "height": 4 }
   ],
   "links": [
-    { "id": "svc10>db2", "from": "svc10", "to": "db2", "points": [[84, 6], [80, 6]] },
-    { "id": "svc10>svc8", "from": "svc10", "to": "svc8", "points": [[85, 8], [85, 33], [59, 33], [59, 34]] },
-    { "id": "svc7>db2", "from": "svc7", "to": "db2", "points": [[19, 34], [19, 29], [44, 29]] },
-    { "id": "svc8>db2", "from": "svc8", "to": "db2", "points": [[52, 34], [52, 30]] },
-    { "id": "svc8>svc7", "from": "svc8", "to": "svc7", "points": [[44, 36], [20, 36]] },
-    { "id": "svc9>db2", "from": "svc9", "to": "db2", "points": [[84, 35], [79, 35], [79, 30]] },
-    { "id": "svc9>newdb11", "from": "svc9", "to": "newdb11", "points": [[92, 38], [92, 42]] },
-    { "id": "svc9>svc8", "from": "svc9", "to": "svc8", "points": [[84, 36], [60, 36]] }
+    { "id": "svc10>db2", "from": "svc10", "to": "db2", "points": [[84, 6], [80, 6]], "label": { "x": 78, "y": 5, "width": 6, "height": 2 } },
+    { "id": "svc10>svc8", "from": "svc10", "to": "svc8", "points": [[85, 8], [85, 33], [59, 33], [59, 34]], "label": { "x": 73, "y": 32, "width": 4, "height": 2 } },
+    { "id": "svc7>db2", "from": "svc7", "to": "db2", "points": [[19, 34], [19, 29], [44, 29]], "label": { "x": 27, "y": 28, "width": 5, "height": 2 } },
+    { "id": "svc8>db2", "from": "svc8", "to": "db2", "points": [[52, 34], [52, 30]], "label": { "x": 49, "y": 31, "width": 6, "height": 2 } },
+    { "id": "svc8>svc7", "from": "svc8", "to": "svc7", "points": [[44, 36], [20, 36]], "label": { "x": 30, "y": 35, "width": 4, "height": 2 } },
+    { "id": "svc9>db2", "from": "svc9", "to": "db2", "points": [[84, 35], [79, 35], [79, 30]], "label": { "x": 77, "y": 33, "width": 5, "height": 2 } },
+    { "id": "svc9>newdb11", "from": "svc9", "to": "newdb11", "points": [[92, 38], [92, 42]], "label": { "x": 90, "y": 39, "width": 5, "height": 2 } },
+    { "id": "svc9>svc8", "from": "svc9", "to": "svc8", "points": [[84, 36], [60, 36]], "label": { "x": 70, "y": 35, "width": 4, "height": 2 } }
   ]
 }
