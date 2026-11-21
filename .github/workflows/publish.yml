@@ -1,0 +1,19 @@
+name: publish
+# Pushing a tag like v0.1.0 tests, packs and publishes that version to GitHub Packages.
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+  packages: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - run: dotnet test -c Release
+      - run: dotnet pack src/Groma -c Release -p:Version=${GITHUB_REF_NAME#v} -o out
+      - run: dotnet nuget push out/*.nupkg --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --api-key ${{ secrets.GITHUB_TOKEN }}
