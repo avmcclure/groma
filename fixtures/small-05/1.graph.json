@@ -1,0 +1,14 @@
+{
+  "boxes": [
+    {"id": "db1", "width": 16, "height": 2},
+    {"id": "db1/table1", "width": 14, "height": 4, "parent": "db1"},
+    {"id": "db1/table2", "width": 14, "height": 4, "parent": "db1"},
+    {"id": "svc3", "width": 16, "height": 4},
+    {"id": "svc4", "width": 16, "height": 4}
+  ],
+  "links": [
+    {"id": "svc3>db1", "from": "svc3", "to": "db1", "labelWidth": 6, "labelHeight": 2},
+    {"id": "svc4>db1", "from": "svc4", "to": "db1", "labelWidth": 6, "labelHeight": 2},
+    {"id": "svc4>svc3", "from": "svc4", "to": "svc3", "labelWidth": 4, "labelHeight": 2}
+  ]
+}

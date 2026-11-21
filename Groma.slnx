@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Groma.Cli/Groma.Cli.csproj" />
+    <Project Path="src/Groma/Groma.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Groma.Tests/Groma.Tests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,2 @@
+# Stored expected outputs are compared byte for byte, so line ends must not vary by platform.
+* text=auto eol=lf

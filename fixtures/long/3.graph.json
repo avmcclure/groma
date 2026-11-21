@@ -1,0 +1,31 @@
+{
+  "boxes": [
+    {"id": "db1", "width": 16, "height": 2},
+    {"id": "db1/table1", "width": 14, "height": 4, "parent": "db1"},
+    {"id": "db1/table2", "width": 14, "height": 4, "parent": "db1"},
+    {"id": "db1/table3", "width": 14, "height": 4, "parent": "db1"},
+    {"id": "db2", "width": 16, "height": 2},
+    {"id": "db2/table5", "width": 14, "height": 4, "parent": "db2"},
+    {"id": "db2/table6", "width": 14, "height": 4, "parent": "db2"},
+    {"id": "svc7", "width": 16, "height": 4},
+    {"id": "svc8", "width": 16, "height": 4},
+    {"id": "svc9", "width": 16, "height": 4},
+    {"id": "db2/table11", "width": 14, "height": 4, "parent": "db2"},
+    {"id": "db1/table12", "width": 14, "height": 4, "parent": "db1"}
+  ],
+  "links": [
+    {"id": "svc7>db1", "from": "svc7", "to": "db1", "labelWidth": 5, "labelHeight": 2},
+    {"id": "svc8>db2", "from": "svc8", "to": "db2", "labelWidth": 5, "labelHeight": 2},
+    {"id": "svc8>db1", "from": "svc8", "to": "db1", "labelWidth": 5, "labelHeight": 2},
+    {"id": "svc8>svc7", "from": "svc8", "to": "svc7", "labelWidth": 4, "labelHeight": 2},
+    {"id": "svc9>db1", "from": "svc9", "to": "db1", "labelWidth": 6, "labelHeight": 2},
+    {"id": "svc9>db2", "from": "svc9", "to": "db2", "labelWidth": 5, "labelHeight": 2},
+    {"id": "svc9>svc8", "from": "svc9", "to": "svc8", "labelWidth": 4, "labelHeight": 2},
+    {"id": "db2>db1", "from": "db2", "to": "db1", "labelWidth": 5, "labelHeight": 2},
+    {"id": "svc7>db1/table1", "from": "svc7", "to": "db1/table1", "labelWidth": 4, "labelHeight": 2},
+    {"id": "svc8>db1/table1", "from": "svc8", "to": "db1/table1", "labelWidth": 4, "labelHeight": 2},
+    {"id": "svc7>db2/table11", "from": "svc7", "to": "db2/table11", "labelWidth": 5, "labelHeight": 2},
+    {"id": "svc9>db1/table12", "from": "svc9", "to": "db1/table12", "labelWidth": 5, "labelHeight": 2},
+    {"id": "svc9>db1/table2", "from": "svc9", "to": "db1/table2", "labelWidth": 4, "labelHeight": 2}
+  ]
+}
