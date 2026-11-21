@@ -55,10 +55,10 @@ sealed class Placer
         var b = box[id];
         if (kids[id].Count == 0) return (b.Width, b.Height, [(id, new Rect(0, 0, b.Width, b.Height))]);
         var (iw, ih, inner) = Arrange(kids[id]);
-        // Spare room for one more row along the bottom: boxes added later then fit without the container
+        // Spare room for one more row of plain boxes along the bottom: boxes added later then fit without the container
         // having to grow, which its neighbours may not allow. (The idea of reserving room in advance is
         // Frishman and Tal's; the amount is ours.)
-        int spare = inner.Where(i => box[i.Id].Parent == id).Min(i => i.R.Height) + Gap;
+        int spare = Math.Min(inner.Where(i => box[i.Id].Parent == id).Min(i => i.R.Height), Gap) + Gap;
         int w = Math.Max(b.Width, iw + 2 * Pad), h = b.Height + ih + spare + 2 * Pad;
         var items = new List<(string, Rect)> { (id, new Rect(0, 0, w, h)) };
         items.AddRange(inner.Select(i => (i.Id, i.R with { X = i.R.X + Pad, Y = i.R.Y + b.Height + Pad })));

@@ -41,6 +41,13 @@ static class Labels
         foreach (var (l, pts) in todo)
         {
             var mine = Segments(l.Id, pts).ToList();
+            // Only what lies near this link's line can ever be under its label.
+            var reach = new Rect(pts.Min(p => p.X) - l.LabelWidth, pts.Min(p => p.Y) - l.LabelHeight,
+                pts.Max(p => p.X) - pts.Min(p => p.X) + 2 * l.LabelWidth, pts.Max(p => p.Y) - pts.Min(p => p.Y) + 2 * l.LabelHeight);
+            var nearBoxes = leaves.Where(b => Overlap(reach, b)).ToList();
+            var nearFixed = fixedLabels.Where(f => Overlap(reach, f)).ToList();
+            var nearLines = segs.Where(s => s.Link != l.Id && Runs(s, reach)).ToList();
+            var nearOutlines = outlines.Where(o => Overlap(reach, o)).ToList();
             int total = mine.Sum(s => s.B - s.A), walked = 0;
             var list = new List<Candidate>();
             for (int i = 1; i < pts.Count; i++)
@@ -57,11 +64,11 @@ static class Labels
                     if (!h) cost += Upright;
                     int along = h ? l.LabelWidth : l.LabelHeight;
                     if (t < along / 2 || len - t < (along + 1) / 2) cost += Overhang;
-                    cost += OverBoxOrLabel * (leaves.Count(b => Overlap(rect, b)) + fixedLabels.Count(f => Overlap(rect, f)));
-                    cost += OverOtherLine * segs.Count(s => s.Link != l.Id && Runs(s, rect));
+                    cost += OverBoxOrLabel * (nearBoxes.Count(b => Overlap(rect, b)) + nearFixed.Count(f => Overlap(rect, f)));
+                    cost += OverOtherLine * nearLines.Count(s => Runs(s, rect));
                     // Its own line passes through it once by design; any more is a bend underneath.
                     cost += OverOwnBend * Math.Max(0, mine.Count(s => Runs(s, rect)) - 1);
-                    cost += OverOutline * outlines.Count(o => Straddles(rect, o));
+                    cost += OverOutline * nearOutlines.Count(o => Straddles(rect, o));
                     list.Add(new Candidate(rect, cost));
                 }
                 walked += len;

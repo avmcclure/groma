@@ -13,17 +13,19 @@ sealed class Router
     // Costs, in tenths of a grid step. Tuned on the benchmark; see docs/routing.md before changing.
     const int Step = 10;        // one grid step of line
     const int Bend = 40;        // a corner
-    const int Cross = 200;      // crossing another line
+    const int Cross = 400;      // crossing another line
     const int Touch = 300;      // meeting another line's corner or end at a point
     const int Share = 1000;     // one step run on top of another line
-    const int Border = 200;     // stepping over the outline of a container the link has no end in
+    const int Border = 400;     // stepping over the outline of a container the link has no end in
+    const int Beside = 1;       // one step run right alongside another line, with no clear track between
+    const int Title = 30;       // one step along the row where a container's title is written
     const int Through = 100000; // one step inside a box: only when there is no other way at all
 
     const int Right = 0, Down = 1, Left = 2, Up = 3;
 
     readonly int w, h, w1;
     readonly int[] delta;
-    readonly bool[] wall, blocked, noRight, noDown;
+    readonly bool[] wall, blocked, noRight, noDown, title;
     readonly short[] inner;   // the innermost container strictly around each grid point, or -1
     readonly int[][] chain;   // container -> itself and the containers around it
     readonly byte[] useRight, useDown;
@@ -36,12 +38,13 @@ sealed class Router
     readonly PriorityQueue<int, int> open = new();
     int stamp;
 
-    public Router(int width, int height, IReadOnlyList<PlacedBox> boxes)
+    /// <param name="titles">The height of each container's title strip, where known.</param>
+    public Router(int width, int height, IReadOnlyList<PlacedBox> boxes, IReadOnlyDictionary<string, int>? titles = null)
     {
         (w, h, w1) = (width, height, width + 1);
         int n = w1 * (h + 1);
         delta = [1, w1, -1, -w1];
-        (wall, blocked, noRight, noDown) = (new bool[n], new bool[n], new bool[n], new bool[n]);
+        (wall, blocked, noRight, noDown, title) = (new bool[n], new bool[n], new bool[n], new bool[n], new bool[n]);
         (useRight, useDown, inner) = (new byte[n], new byte[n], new short[n]);
         (cost, from, seen) = (new int[n * 4], new int[n * 4], new int[n * 4]);
         (goalDir, goalSeen, goalBias) = (new int[n], new int[n], new int[n]);
@@ -61,6 +64,9 @@ sealed class Router
             for (int y = Math.Max(c.Y + 1, 0); y < Math.Min(c.Y + c.Height, h + 1); y++)
                 for (int x = Math.Max(c.X + 1, 0); x < Math.Min(c.X + c.Width, w + 1); x++)
                     inner[y * w1 + x] = (short)i; // deeper containers come later and overwrite
+            for (int y = c.Y + 1; titles is not null && y < c.Y + titles.GetValueOrDefault(c.Id); y++)
+                for (int x = c.X + 1; x < c.X + c.Width; x++)
+                    if (InSheet(x, y)) title[y * w1 + x] = true;
             foreach (int y in new[] { c.Y, c.Y + c.Height })
                 for (int x = c.X; x < c.X + c.Width; x++)
                     if (InSheet(x, y)) noRight[y * w1 + x] = true;
@@ -118,12 +124,17 @@ sealed class Router
     {
         var order = links.OrderBy(Span).ThenBy(l => l.Id, StringComparer.Ordinal).ToList();
         foreach (var l in order) Draw(l);
-        for (int pass = 0; pass < passes; pass++)
+        for (int pass = 0, changed = 1; pass < passes && changed > 0; pass++)
+        {
+            changed = 0;
             foreach (var l in order)
             {
-                Use(drawn[l.Id], -1);
+                var before = drawn[l.Id];
+                Use(before, -1);
                 Draw(l);
+                if (!before.SequenceEqual(drawn[l.Id])) changed++;
             }
+        }
         return order.ToDictionary(l => l.Id, l => Corners(drawn[l.Id]), StringComparer.Ordinal);
     }
 
@@ -242,12 +253,15 @@ sealed class Router
         if (wall[next] && !arriving) return false;
         if (dir switch { Right => noRight[node], Left => noRight[next], Down => noDown[node], _ => noDown[next] }) return false;
         if (arriving) extra += goalBias[next];
+        if (title[next] && (dir == Right || dir == Left)) extra += Title;
         if (blocked[next] && !arriving)
         {
             if (!force) return false;
             extra += Through;
         }
         extra += Share * (dir switch { Right => useRight[node], Left => useRight[next], Down => useDown[node], _ => useDown[next] });
+        int from = dir is Right or Down ? node : next; // the grid edge being walked, named by its first point
+        if (dir is Right or Left ? useRight[from - w1] + useRight[from + w1] > 0 : useDown[from - 1] + useDown[from + 1] > 0) extra += Beside;
         int a = inner[node], b = inner[next];
         if (a != b)
         {

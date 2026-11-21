@@ -212,3 +212,27 @@ public class SurveyTests
         Assert.Throws<GromaInputException>(() => Plan.Survey(new Graph([new Box("a", 8, 4), new Box("a", 8, 4)], [])));
     }
 }
+
+public class NestingTests
+{
+    [Fact]
+    public void A_line_keeps_out_of_a_container_title_when_it_costs_little_to_do_so()
+    {
+        // The straight way in from 'a' runs along the row where the title of 'db' is written.
+        var before = new Layout(60, 30, [B("a", 4, 2, 8, 4), B("db", 20, 4, 30, 16), B("t", 36, 12, 8, 4, "db")], []);
+        var graph = new Graph([new Box("a", 8, 4), new Box("db", 10, 2), new Box("t", 8, 4, "db")], [new Link("l", "a", "t")]);
+        var points = Plan.Update(graph, before).Links[0].Points;
+        for (int i = 1; i < points.Count; i++)
+            Assert.False(points[i - 1].Y == 5 && points[i].Y == 5 && Math.Max(points[i - 1].X, points[i].X) > 20, "the line runs through the title row");
+    }
+
+    [Fact]
+    public void A_container_of_containers_keeps_only_a_modest_reserve()
+    {
+        var graph = new Graph(
+            [new Box("server", 10, 2), new Box("db", 10, 2, "server"), new Box("t1", 8, 4, "db"), new Box("t2", 8, 4, "db"), new Box("t3", 8, 4, "db"), new Box("t4", 8, 4, "db")], []);
+        var layout = Plan.Survey(graph);
+        var (server, db) = (layout.Boxes.Single(b => b.Id == "server"), layout.Boxes.Single(b => b.Id == "db"));
+        Assert.InRange(server.Y + server.Height - (db.Y + db.Height), 2, 12);
+    }
+}

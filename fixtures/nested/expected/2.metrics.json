@@ -3,19 +3,19 @@
   "links": 15,
   "survivors": 17,
   "moved": 0,
-  "crossings": 7,
+  "crossings": 6,
   "throughBoxes": 0,
   "overlappingBoxes": 0,
   "onTop": 0,
   "containerCuts": 0,
   "bends": 22,
   "maxBends": 3,
-  "length": 1323,
+  "length": 1326,
   "labelClashes": 0,
   "labelsOverLines": 0,
   "diagonals": 0,
   "detachedEnds": 0,
   "width": 228,
-  "height": 79,
-  "area": 18012
+  "height": 58,
+  "area": 13224
 }

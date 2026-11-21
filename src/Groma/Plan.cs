@@ -62,7 +62,7 @@ public static class Plan
         // The sheet only ever grows, and only right and down, so a grid reference never changes meaning.
         int width = Math.Max(previous?.Width ?? 0, boxes.Select(b => b.X + b.Width + o.BoxGap).DefaultIfEmpty(0).Max());
         int height = Math.Max(previous?.Height ?? 0, boxes.Select(b => b.Y + b.Height + o.BoxGap).DefaultIfEmpty(0).Max());
-        var routes = new Router(width, height, boxes).RouteAll(g.Links);
+        var routes = new Router(width, height, boxes, g.Boxes.ToDictionary(b => b.Id, b => b.Height, StringComparer.Ordinal)).RouteAll(g.Links);
         var labels = Labels.Place(width, height, boxes, [.. g.Links.Select(l => (l, (IReadOnlyList<Point>)routes[l.Id]))], []);
         return new Layout(width, height, boxes, [.. g.Links.Select(l => ToRoute(l, routes[l.Id], labels))]);
     }

@@ -4,6 +4,14 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Groma</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Alex McClure</Authors>
+    <Description>Lays out survey plans: boxes, some holding other boxes, joined by right-angled labelled lines on a grid. Boxes that survive a change keep their exact positions.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/avmcclure/groma</RepositoryUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591;CS1573</NoWarn>
   </PropertyGroup>
 
 </Project>
