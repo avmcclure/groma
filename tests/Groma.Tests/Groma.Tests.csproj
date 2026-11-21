@@ -19,6 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- The debug picture lives with the command; tests borrow it to draw the stored layouts. -->
+    <Compile Include="..\..\src\Groma.Cli\Svg.cs" Link="Svg.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\src\Groma\Groma.csproj" />
   </ItemGroup>
 

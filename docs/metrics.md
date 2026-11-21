@@ -26,4 +26,5 @@ Two validity counts are also kept and must be 0: segments that are slanted or ha
 - Moved counted leaf boxes only in the prototypes; here it counts containers too.
 - Through boxes is stricter here: a line running along a box's side counts.
 - Overlapping boxes is stricter here: the prototypes compared leaf boxes only.
-- Label clashes matches the MSAGL trial's definition. Labels over lines, container cuts, bends, length, area and aspect were not measured by either prototype.
+- Label clashes matches the MSAGL trial's definition. Labels over lines, container cuts, bends, length, area and aspect were not measured by either prototype; the MSAGL figures for them in `fixtures/*/baselines.json` come from applying this library's measures to the MSAGL trial's drawings.
+- Checked against the MSAGL trial's own drawings, this crossing counter gives 11, 20 and 23 on the real sheet, exactly as the trial reported.
