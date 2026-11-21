@@ -198,9 +198,16 @@ static class Layered
         // group still count for something here: boxes fed from outside take the side links come in from,
         // and boxes that feed out take the far side.
         loose = [.. loose.OrderBy(v => Math.Sign(lean[v])).ThenBy(v => v)];
-        int across = 1;
-        while (across * across < loose.Count) across++;
-        int deep = (loose.Count + across - 1) / across;
+        // As many columns as make the grid nearest to square on the sheet, whatever shape the boxes are.
+        int across = 1, deep = loose.Count;
+        if (loose.Count > 0)
+        {
+            int widest = loose.Max(Main) + gap, tallest = loose.Max(Cross) + gap;
+            long Lopsided(int columns) => Math.Abs((long)columns * widest - (long)((loose.Count + columns - 1) / columns) * tallest);
+            for (int columns = 2; columns <= loose.Count; columns++)
+                if (Lopsided(columns) < Lopsided(across)) across = columns;
+            deep = (loose.Count + across - 1) / across;
+        }
         for (int k = 0, offset = 0; k * deep < loose.Count; k++)
         {
             var line = loose.Skip(k * deep).Take(deep).ToList();

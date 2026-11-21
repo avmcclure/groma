@@ -34,9 +34,11 @@ sealed class Router
     readonly Dictionary<string, List<int>> drawn = new(StringComparer.Ordinal);
 
     readonly int[] cost, from, seen, goalDir, goalSeen, goalBias;
+    readonly ushort[] nodeX, nodeY;
     readonly bool[] own;
-    readonly PriorityQueue<int, int> open = new();
+    readonly Frontier open = new();
     int stamp;
+    Rect goal;
 
     /// <param name="titles">The height of each container's title strip, where known.</param>
     public Router(int width, int height, IReadOnlyList<PlacedBox> boxes, IReadOnlyDictionary<string, int>? titles = null)
@@ -49,6 +51,8 @@ sealed class Router
         (cost, from, seen) = (new int[n * 4], new int[n * 4], new int[n * 4]);
         (goalDir, goalSeen, goalBias) = (new int[n], new int[n], new int[n]);
         Array.Fill(inner, (short)-1);
+        (nodeX, nodeY) = (new ushort[n], new ushort[n]);
+        for (int i = 0; i < n; i++) (nodeX[i], nodeY[i]) = ((ushort)(i % w1), (ushort)(i / w1));
         byId = boxes.ToDictionary(b => b.Id, StringComparer.Ordinal);
 
         int Depth(PlacedBox b) => b.Parent is not null && byId.TryGetValue(b.Parent, out var p) ? 1 + Depth(p) : 0;
@@ -199,31 +203,26 @@ sealed class Router
             goalBias[node] = off;
             goalDir[node] = l.To is null || fromInside ? normal : normal ^ 2;
         }
-        Rect goal = l.To is not null ? byId[l.To].Rect : l.ToEdge switch
+        goal = l.To is not null ? byId[l.To].Rect : l.ToEdge switch
         {
             Side.Left => new Rect(0, 0, 0, h),
             Side.Right => new Rect(w, 0, 0, h),
             Side.Top => new Rect(0, 0, w, 0),
             _ => new Rect(0, h, w, 0),
         };
-        int Ahead(int node)
-        {
-            int x = node % w1, y = node / w1;
-            return Step * (Math.Max(0, Math.Max(goal.X - x, x - goal.Right)) + Math.Max(0, Math.Max(goal.Y - y, y - goal.Bottom)));
-        }
-
         foreach (var (port, normal, off) in Ports(l.From, l.FromEdge))
         {
             int dir = l.From is null || toInside ? normal ^ 2 : normal;
             if (wall[port] && l.From is not null) continue;
             int first = port + delta[dir];
             if (!Enter(port, first, dir, force, out int extra)) continue;
-            Reach(first * 4 + dir, Step + extra + off, -1 - port, Ahead(first));
+            Reach(first * 4 + dir, Step + extra + off, -1 - port);
         }
 
-        while (open.TryDequeue(out int state, out _))
+        while (open.TryPop(out int state, out int promised))
         {
             int node = state >> 2, dir = state & 3;
+            if (promised > cost[state] + Ahead(node)) continue; // a cheaper way here was found after this was queued
             if (goalSeen[node] == stamp && goalDir[node] == dir) return Trace(state);
             if (wall[node]) continue;
             int g = cost[state];
@@ -232,17 +231,24 @@ sealed class Router
                 int d = turn == 0 ? dir : turn == 1 ? (dir + 1) & 3 : (dir + 3) & 3;
                 int next = node + delta[d];
                 if (!Enter(node, next, d, force, out int extra)) continue;
-                Reach(next * 4 + d, g + Step + (d == dir ? 0 : Bend) + Meeting(node, dir, d) + extra, state, Ahead(next));
+                Reach(next * 4 + d, g + Step + (d == dir ? 0 : Bend) + Meeting(node, dir, d) + extra, state);
             }
         }
         return null;
     }
 
-    void Reach(int state, int g, int cameFrom, int ahead)
+    // The least a line must still cost from here: the straight distance to the goal.
+    int Ahead(int node)
+    {
+        int x = nodeX[node], y = nodeY[node];
+        return Step * (Math.Max(0, Math.Max(goal.X - x, x - goal.Right)) + Math.Max(0, Math.Max(goal.Y - y, y - goal.Bottom)));
+    }
+
+    void Reach(int state, int g, int cameFrom)
     {
         if (seen[state] == stamp && cost[state] <= g) return;
         (seen[state], cost[state], from[state]) = (stamp, g, cameFrom);
-        open.Enqueue(state, g + ahead);
+        open.Push(state, g + Ahead(state >> 2));
     }
 
     // May a line step from one grid point to the next, and what does that step cost beyond its length?
@@ -302,6 +308,47 @@ sealed class Router
         for (int x = a % w1, y = a / w1; x != b % w1; path.Add(y * w1 + x)) x += Math.Sign(b % w1 - x);
         for (int x = b % w1, y = a / w1; y != b / w1; path.Add(y * w1 + x)) y += Math.Sign(b / w1 - y);
         return path;
+    }
+
+    /// <summary>
+    /// The states waiting to be looked at, cheapest first. Costs are small whole numbers that never go down as
+    /// the search advances, so one bin per cost is far quicker than a heap; the rare cost too big for the bins
+    /// (a line forced through a box) falls back to one.
+    /// </summary>
+    sealed class Frontier
+    {
+        const int Bins = 1 << 17;
+        readonly List<int>?[] bin = new List<int>?[Bins];
+        readonly PriorityQueue<int, int> beyond = new();
+        int low = Bins, high = -1;
+
+        public void Clear()
+        {
+            for (int i = Math.Max(low, 0); i <= high; i++) bin[i]?.Clear();
+            (low, high) = (Bins, -1);
+            beyond.Clear();
+        }
+
+        public void Push(int state, int cost)
+        {
+            if (cost >= Bins) { beyond.Enqueue(state, cost); return; }
+            (bin[cost] ??= []).Add(state);
+            if (cost < low) low = cost;
+            if (cost > high) high = cost;
+        }
+
+        public bool TryPop(out int state, out int cost)
+        {
+            for (; low <= high; low++)
+            {
+                var list = bin[low];
+                if (list is null || list.Count == 0) continue;
+                (state, cost) = (list[^1], low);
+                list.RemoveAt(list.Count - 1);
+                return true;
+            }
+            return beyond.TryDequeue(out state, out cost);
+        }
     }
 
     List<Point> Corners(List<int> path)

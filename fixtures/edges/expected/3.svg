@@ -16,9 +16,9 @@
 <polyline points="440,90 520,90" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="90" r="2.5" fill="#35506b"/>
 <polyline points="400,290 400,430 1060,430 1060,300" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1060" cy="300" r="2.5" fill="#35506b"/>
 <polyline points="420,290 420,420 1040,420 1040,290 1210,290 1210,200" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1210" cy="200" r="2.5" fill="#35506b"/>
-<polyline points="440,260 530,260 530,160 1010,160 1010,130 1250,130 1250,120" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1250" cy="120" r="2.5" fill="#35506b"/>
+<polyline points="440,260 450,260 450,160 1010,160 1010,130 1250,130 1250,120" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1250" cy="120" r="2.5" fill="#35506b"/>
 <polyline points="430,290 430,410 1030,410 1030,200" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1030" cy="200" r="2.5" fill="#35506b"/>
-<polyline points="440,280 520,280" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="280" r="2.5" fill="#35506b"/>
+<polyline points="440,270 520,270" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="270" r="2.5" fill="#35506b"/>
 <polyline points="430,250 430,130 530,130 530,100" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="530" cy="100" r="2.5" fill="#35506b"/>
 <rect x="1020" y="80" width="140" height="40" fill="#fff" stroke="#222"/><text x="1090" y="104" text-anchor="middle">table1</text>
 <rect x="1200" y="160" width="140" height="40" fill="#ffe9a8" stroke="#222"/><text x="1270" y="184" text-anchor="middle">table12</text>
@@ -46,6 +46,6 @@
 <rect x="840" y="410" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="790" y="150" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="750" y="400" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="460" y="270" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="460" y="260" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="430" y="120" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 </svg>

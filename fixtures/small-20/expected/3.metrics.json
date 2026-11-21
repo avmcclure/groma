@@ -7,15 +7,15 @@
   "throughBoxes": 0,
   "overlappingBoxes": 0,
   "onTop": 0,
-  "containerCuts": 0,
-  "bends": 33,
-  "maxBends": 4,
-  "length": 1865,
+  "containerCuts": 1,
+  "bends": 37,
+  "maxBends": 5,
+  "length": 1700,
   "labelClashes": 0,
   "labelsOverLines": 0,
   "diagonals": 0,
   "detachedEnds": 0,
-  "width": 232,
-  "height": 50,
-  "area": 11600
+  "width": 196,
+  "height": 68,
+  "area": 13328
 }

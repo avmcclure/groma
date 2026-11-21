@@ -10,12 +10,12 @@
   "containerCuts": 0,
   "bends": 12,
   "maxBends": 3,
-  "length": 486,
+  "length": 420,
   "labelClashes": 0,
   "labelsOverLines": 0,
   "diagonals": 0,
   "detachedEnds": 0,
-  "width": 140,
-  "height": 42,
-  "area": 5880
+  "width": 122,
+  "height": 50,
+  "area": 6100
 }

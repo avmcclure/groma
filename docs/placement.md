@@ -9,7 +9,7 @@ Containers are laid out innermost first, and each is then treated as one box by 
 3. **Order within columns.** Up to 24 sweeps move each box to the average place of its neighbours in the next column, then swap adjacent boxes where that removes a crossing. The best order seen is kept.
 4. **Positions.** Each box is pulled level with the middle of its neighbours without changing the order or closing the gaps.
 
-Boxes with no links at their level are set out in a grid. Columns are a double gap apart, which leaves room for lines and labels.
+Boxes with no links at their level are set out in a grid with as many columns as make it nearest to square. Columns are a double gap apart, which leaves room for lines and labels.
 
 A link counts at a level only if both its ends are inside different members of that group. Links that leave a container shape its inside in one way only: among the boxes set out in a grid, those fed from outside take the side links come in from and those that feed out take the far side. Otherwise the inside of a container is laid out without regard to what is outside it; this is the known cost of laying out containers one at a time.
 
