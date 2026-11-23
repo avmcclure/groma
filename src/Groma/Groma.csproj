@@ -10,8 +10,14 @@
     <Description>Lays out survey plans: boxes, some holding other boxes, joined by right-angled labelled lines on a grid. Boxes that survive a change keep their exact positions.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/avmcclure/groma</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/avmcclure/groma</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);CS1591;CS1573</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
 
 </Project>
