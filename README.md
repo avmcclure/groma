@@ -1,3 +1,5 @@
+> **Archived.** Groma is no longer maintained. Cartographer, its only consumer, now draws a map of clusters instead of laid-out plans. The package stays on nuget.org, unlisted.
+
 # Groma
 
 Lays out survey plans: ruled boxes, some holding other boxes, joined by right-angled labelled lines on a grid.
