@@ -43,6 +43,18 @@ public class RoutingTests
     }
 
     [Fact]
+    public void Links_out_of_one_box_run_together_as_one_trunk()
+    {
+        // The hub sits high on the left; its six targets are stacked on the right, so every line turns down.
+        PlacedBox[] boxes = [B("hub", 4, 2, 8, 4), .. Enumerable.Range(1, 6).Select(i => B($"t{i}", 40, i * 6, 8, 4))];
+        var layout = Routed(boxes, [.. Enumerable.Range(1, 6).Select(i => L($"l{i}", "hub", $"t{i}"))]);
+        var downs = layout.Links.SelectMany(l => l.Points.Zip(l.Points.Skip(1)).Where(p => p.First.X == p.Second.X).Select(p => p.First.X)).Distinct();
+        Assert.Single(downs);
+        Assert.Equal((0, 0), (Metrics.Measure(layout).OnTop, Metrics.Measure(layout).Crossings));
+        AssertSound(layout);
+    }
+
+    [Fact]
     public void Many_links_into_one_box_each_get_their_own_connection_point()
     {
         PlacedBox[] boxes = [B("hub", 24, 16, 12, 4), B("n1", 4, 4, 8, 4), B("n2", 44, 4, 8, 4), B("n3", 4, 30, 8, 4), B("n4", 44, 30, 8, 4), B("n5", 24, 4, 8, 4), B("n6", 24, 30, 8, 4)];

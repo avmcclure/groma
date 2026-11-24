@@ -6,7 +6,7 @@
 <polyline points="200,180 520,180" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="180" r="2.5" fill="#35506b"/>
 <polyline points="200,160 280,160" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="280" cy="160" r="2.5" fill="#35506b"/>
 <polyline points="480,70 520,70" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="70" r="2.5" fill="#35506b"/>
-<polyline points="470,90 470,100 540,100" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="540" cy="100" r="2.5" fill="#35506b"/>
+<polyline points="480,70 550,70 550,80" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="550" cy="80" r="2.5" fill="#35506b"/>
 <polyline points="320,80 190,80 190,150" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="190" cy="150" r="2.5" fill="#35506b"/>
 <rect x="540" y="160" width="140" height="40" fill="#fff" stroke="#222"/><text x="610" y="184" text-anchor="middle">table2</text>
 <rect x="540" y="80" width="140" height="40" fill="#fff" stroke="#222"/><text x="610" y="104" text-anchor="middle">table6</text>
@@ -18,6 +18,6 @@
 <rect x="330" y="170" width="60" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="220" y="150" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="480" y="60" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="480" y="90" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="530" y="60" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="200" y="70" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 </svg>

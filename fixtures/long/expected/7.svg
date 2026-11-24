@@ -7,13 +7,13 @@
 <polyline points="750,360 750,190 680,190" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="680" cy="190" r="2.5" fill="#35506b"/>
 <polyline points="740,390 670,390 670,400" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="670" cy="400" r="2.5" fill="#35506b"/>
 <polyline points="430,160 430,110 780,110" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="780" cy="110" r="2.5" fill="#35506b"/>
-<polyline points="420,160 420,90 990,90 990,100" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="990" cy="100" r="2.5" fill="#35506b"/>
-<polyline points="440,170 520,170" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="170" r="2.5" fill="#35506b"/>
-<polyline points="180,270 180,70 780,70" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="780" cy="70" r="2.5" fill="#35506b"/>
-<polyline points="160,270 160,50 1130,50 1130,190 1120,190" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1120" cy="190" r="2.5" fill="#35506b"/>
+<polyline points="430,160 430,90 990,90 990,100" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="990" cy="100" r="2.5" fill="#35506b"/>
+<polyline points="440,180 520,180" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="180" r="2.5" fill="#35506b"/>
+<polyline points="190,270 190,70 780,70" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="780" cy="70" r="2.5" fill="#35506b"/>
+<polyline points="190,270 190,80 1130,80 1130,190 1120,190" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1120" cy="190" r="2.5" fill="#35506b"/>
 <polyline points="190,310 190,550 910,550 910,220" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="910" cy="220" r="2.5" fill="#35506b"/>
 <polyline points="200,300 520,300" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="520" cy="300" r="2.5" fill="#35506b"/>
-<polyline points="200,280 450,280 450,190 540,190" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="540" cy="190" r="2.5" fill="#35506b"/>
+<polyline points="200,280 530,280 530,190 540,190" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="540" cy="190" r="2.5" fill="#35506b"/>
 <polyline points="200,290 550,290 550,280" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="550" cy="280" r="2.5" fill="#35506b"/>
 <polyline points="190,270 190,190 280,190" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="280" cy="190" r="2.5" fill="#35506b"/>
 <rect x="980" y="180" width="140" height="40" fill="#fff" stroke="#222"/><text x="1050" y="204" text-anchor="middle">table12</text>
@@ -33,13 +33,13 @@
 <rect x="710" y="180" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="680" y="380" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="560" y="100" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="650" y="80" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="460" y="160" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="660" y="80" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="460" y="170" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="350" y="60" width="60" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="590" y="40" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="600" y="70" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="570" y="540" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="340" y="290" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="340" y="270" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="390" y="280" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="390" y="270" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="300" y="280" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="190" y="180" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 </svg>

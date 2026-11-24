@@ -10,6 +10,10 @@ Boxes never move while lines are routed. The sheet is treated as a grid of point
 - A link to a sheet edge ends anywhere on that edge.
 - If an end cannot be reached at all, the line is drawn through whatever is in the way and shows up in "lines through boxes".
 
+## Bundles
+
+Lines that share an end run together. For the line being routed, a grid edge used only by lines with the same from box, or only by lines with the same to box, counts as free: no charge for running on it, alongside it or meeting it. The lines out of a busy box therefore draw one trunk that branches near their far ends, instead of a parallel track each. The router keeps, for every grid edge, the sum and the sum of squares of the end keys of the lines on it; all the lines share an end exactly when those agree with one key. Lines placed by `Plan.RouteExtra` over an existing layout never bundle with it. "On top" in the measures does not count lines that share an end. A label whose branch is shorter than the label can end up on the trunk, and then counts in "labels over lines".
+
 ## Costs
 
 A path's cost is the sum of these, in tenths of a step. They are constants in `Router.cs`, not options.

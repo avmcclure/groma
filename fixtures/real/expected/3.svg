@@ -2,23 +2,23 @@
 <rect width="100%" height="100%" fill="#fff" stroke="#bbb"/>
 <rect x="320" y="40" width="540" height="1240" fill="#f3f1ea" fill-opacity="0.6" stroke="#8a8370" stroke-dasharray="6 3"/><text x="326" y="54" font-weight="bold">cioc-primary</text>
 <rect x="940" y="490" width="800" height="340" fill="#f3f1ea" fill-opacity="0.6" stroke="#8a8370" stroke-dasharray="6 3"/><text x="946" y="504" font-weight="bold">cioc_shared</text>
-<polyline points="500,200 500,130 610,130 610,120" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="610" cy="120" r="2.5" fill="#35506b"/>
+<polyline points="340,210 330,210 330,70 610,70 610,80" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="610" cy="80" r="2.5" fill="#35506b"/>
 <polyline points="520,210 610,210 610,200" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="610" cy="200" r="2.5" fill="#35506b"/>
-<polyline points="510,200 510,150 1270,150 1270,570" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1270" cy="570" r="2.5" fill="#35506b"/>
-<polyline points="520,220 990,220 990,570" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="990" cy="570" r="2.5" fill="#35506b"/>
-<polyline points="520,1010 850,1010 850,190 760,190" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="760" cy="190" r="2.5" fill="#35506b"/>
+<polyline points="340,210 330,210 330,70 1270,70 1270,570" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1270" cy="570" r="2.5" fill="#35506b"/>
+<polyline points="340,210 330,210 330,70 970,70 970,570" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="970" cy="570" r="2.5" fill="#35506b"/>
+<polyline points="520,990 850,990 850,190 760,190" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="760" cy="190" r="2.5" fill="#35506b"/>
 <polyline points="520,990 770,990 770,510 740,510" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="740" cy="510" r="2.5" fill="#35506b"/>
-<polyline points="340,1170 30,1170 30,60 850,60 850,170 760,170" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="760" cy="170" r="2.5" fill="#35506b"/>
+<polyline points="520,1150 850,1150 850,190 760,190" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="760" cy="190" r="2.5" fill="#35506b"/>
 <polyline points="520,1150 1190,1150 1190,600 1260,600" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1260" cy="600" r="2.5" fill="#35506b"/>
 <polyline points="520,390 610,390 610,400" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="610" cy="400" r="2.5" fill="#35506b"/>
-<polyline points="340,380 310,380 310,70 610,70 610,80" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="610" cy="80" r="2.5" fill="#35506b"/>
-<polyline points="500,360 500,250 590,250 590,230 620,230 620,200" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="620" cy="200" r="2.5" fill="#35506b"/>
-<polyline points="340,370 330,370 330,110 340,110" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="110" r="2.5" fill="#35506b"/>
+<polyline points="520,370 590,370 590,110 600,110" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="600" cy="110" r="2.5" fill="#35506b"/>
+<polyline points="520,370 590,370 590,190 600,190" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="600" cy="190" r="2.5" fill="#35506b"/>
+<polyline points="520,370 530,370 530,120" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="530" cy="120" r="2.5" fill="#35506b"/>
 <polyline points="510,400 510,490 600,490" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="600" cy="490" r="2.5" fill="#35506b"/>
 <polyline points="510,360 510,270 600,270" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="600" cy="270" r="2.5" fill="#35506b"/>
-<polyline points="520,370 1250,370 1250,580 1260,580" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1260" cy="580" r="2.5" fill="#35506b"/>
-<polyline points="500,400 500,700 960,700" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="960" cy="700" r="2.5" fill="#35506b"/>
-<polyline points="520,380 970,380 970,570" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="970" cy="570" r="2.5" fill="#35506b"/>
+<polyline points="520,390 950,390 950,620 1270,620 1270,610" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1270" cy="610" r="2.5" fill="#35506b"/>
+<polyline points="520,390 950,390 950,700 960,700" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="960" cy="700" r="2.5" fill="#35506b"/>
+<polyline points="520,390 970,390 970,570" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="970" cy="570" r="2.5" fill="#35506b"/>
 <polyline points="480,920 600,920" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="600" cy="920" r="2.5" fill="#35506b"/>
 <polyline points="1690,570 1690,660 1360,660" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1360" cy="660" r="2.5" fill="#35506b"/>
 <polyline points="1460,580 1550,580 1550,570" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1550" cy="570" r="2.5" fill="#35506b"/>
@@ -26,13 +26,13 @@
 <polyline points="1180,590 1260,590" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="1260" cy="590" r="2.5" fill="#35506b"/>
 <polyline points="280,810 320,810" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="320" cy="810" r="2.5" fill="#35506b"/>
 <polyline points="270,830 270,990 340,990" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="990" r="2.5" fill="#35506b"/>
-<polyline points="250,830 250,1150 340,1150" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="1150" r="2.5" fill="#35506b"/>
-<polyline points="240,650 320,650" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="320" cy="650" r="2.5" fill="#35506b"/>
-<polyline points="210,640 210,230 340,230" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="230" r="2.5" fill="#35506b"/>
-<polyline points="240,670 330,670 330,970 350,970 350,980" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="350" cy="980" r="2.5" fill="#35506b"/>
-<polyline points="70,680 70,1070 340,1070" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="1070" r="2.5" fill="#35506b"/>
-<polyline points="50,680 50,1160 340,1160" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="1160" r="2.5" fill="#35506b"/>
-<polyline points="230,640 230,390 340,390" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="390" r="2.5" fill="#35506b"/>
+<polyline points="270,830 270,1150 340,1150" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="1150" r="2.5" fill="#35506b"/>
+<polyline points="240,660 320,660" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="320" cy="660" r="2.5" fill="#35506b"/>
+<polyline points="230,640 230,230 340,230" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="230" r="2.5" fill="#35506b"/>
+<polyline points="240,670 330,670 330,990 340,990" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="990" r="2.5" fill="#35506b"/>
+<polyline points="240,670 330,670 330,1070 340,1070" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="1070" r="2.5" fill="#35506b"/>
+<polyline points="70,680 70,1150 340,1150" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="340" cy="1150" r="2.5" fill="#35506b"/>
+<polyline points="240,650 350,650 350,400" fill="none" stroke="#35506b" stroke-width="1.2"/><circle cx="350" cy="400" r="2.5" fill="#35506b"/>
 <rect x="340" y="200" width="180" height="40" fill="#fff" stroke="#222"/><text x="430" y="224" text-anchor="middle">sp_gbl_savedsearch_d</text>
 <rect x="340" y="980" width="180" height="40" fill="#fff" stroke="#222"/><text x="430" y="1004" text-anchor="middle">sp_gbl_savedsearch_l</text>
 <rect x="340" y="1060" width="240" height="40" fill="#fff" stroke="#222"/><text x="460" y="1084" text-anchor="middle">sp_gbl_savedsearch_l_shared</text>
@@ -54,23 +54,23 @@
 <rect x="1540" y="610" width="140" height="40" fill="#fff" stroke="#222"/><text x="1610" y="634" text-anchor="middle">shr_stp_error</text>
 <rect x="80" y="790" width="200" height="40" fill="#fff" stroke="#222"/><text x="180" y="814" text-anchor="middle">online-resources-python</text>
 <rect x="40" y="640" width="200" height="40" fill="#fff" stroke="#222"/><text x="140" y="664" text-anchor="middle">online-resources-site</text>
-<rect x="500" y="120" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="380" y="60" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="530" y="200" width="80" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="1050" y="140" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="910" y="210" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="810" y="1000" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="730" y="980" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="30" y="50" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="990" y="60" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="950" y="70" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="810" y="980" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="750" y="850" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="830" y="1000" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="1140" y="1140" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="550" y="380" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="320" y="60" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="500" y="240" width="80" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="310" y="240" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="570" y="140" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="550" y="300" width="80" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="510" y="240" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="510" y="480" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="510" y="260" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="990" y="360" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="560" y="690" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="810" y="370" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="530" y="260" width="50" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="970" y="610" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="930" y="620" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="950" y="390" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="490" y="910" width="100" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="1550" y="650" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="1490" y="570" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
@@ -78,11 +78,11 @@
 <rect x="1200" y="580" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="290" y="800" width="30" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="270" y="980" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="250" y="1140" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="270" y="640" width="30" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="210" y="220" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="250" y="1010" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="250" y="650" width="30" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="230" y="220" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 <rect x="280" y="660" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="70" y="1060" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="50" y="1150" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
-<rect x="230" y="380" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="310" y="1020" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="70" y="1140" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
+<rect x="280" y="640" width="40" height="20" fill="#fff" fill-opacity="0.85" stroke="#c33" stroke-width="0.5"/>
 </svg>

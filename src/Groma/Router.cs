@@ -29,6 +29,11 @@ sealed class Router
     readonly short[] inner;   // the innermost container strictly around each grid point, or -1
     readonly int[][] chain;   // container -> itself and the containers around it
     readonly byte[] useRight, useDown;
+    // For each grid edge, the sum and sum of squares of the keys of the lines on it, by their from end and by
+    // their to end. All the lines on an edge share an end exactly when the sums say they all have one key.
+    readonly int[] fromSum, fromSquares, toSum, toSquares;
+    readonly Dictionary<string, int> key = new(StringComparer.Ordinal);
+    int myFrom, myTo;
     readonly Dictionary<string, PlacedBox> byId;
     readonly Dictionary<string, int> containerIndex = new(StringComparer.Ordinal);
     readonly Dictionary<string, List<int>> drawn = new(StringComparer.Ordinal);
@@ -48,12 +53,14 @@ sealed class Router
         delta = [1, w1, -1, -w1];
         (wall, blocked, noRight, noDown, title) = (new bool[n], new bool[n], new bool[n], new bool[n], new bool[n]);
         (useRight, useDown, inner) = (new byte[n], new byte[n], new short[n]);
+        (fromSum, fromSquares, toSum, toSquares) = (new int[2 * n], new int[2 * n], new int[2 * n], new int[2 * n]);
         (cost, from, seen) = (new int[n * 4], new int[n * 4], new int[n * 4]);
         (goalDir, goalSeen, goalBias) = (new int[n], new int[n], new int[n]);
         Array.Fill(inner, (short)-1);
         (nodeX, nodeY) = (new ushort[n], new ushort[n]);
         for (int i = 0; i < n; i++) (nodeX[i], nodeY[i]) = ((ushort)(i % w1), (ushort)(i / w1));
         byId = boxes.ToDictionary(b => b.Id, StringComparer.Ordinal);
+        foreach (var b in boxes) key[b.Id] = key.Count + 1;
 
         int Depth(PlacedBox b) => b.Parent is not null && byId.TryGetValue(b.Parent, out var p) ? 1 + Depth(p) : 0;
         var holders = boxes.Where(b => b.Parent is not null).Select(b => b.Parent!).ToHashSet(StringComparer.Ordinal);
@@ -108,19 +115,38 @@ sealed class Router
             if ((a.X == b.X) == (a.Y == b.Y)) continue;
             int dx = Math.Sign(b.X - a.X), dy = Math.Sign(b.Y - a.Y);
             for (int x = a.X, y = a.Y; x != b.X || y != b.Y; x += dx, y += dy)
-                if (InSheet(x, y) && InSheet(x + dx, y + dy)) Use(y * w1 + x, (y + dy) * w1 + x + dx, 1);
+                if (InSheet(x, y) && InSheet(x + dx, y + dy)) Use(y * w1 + x, (y + dy) * w1 + x + dx, 1, 0, 0);
         }
     }
 
-    void Use(int a, int b, int by)
+    void Use(int a, int b, int by, int f, int t)
     {
         ref byte u = ref b == a + 1 ? ref useRight[a] : ref b == a - 1 ? ref useRight[b] : ref b == a + w1 ? ref useDown[a] : ref useDown[b];
         u = (byte)Math.Clamp(u + by, 0, 255);
+        int e = Edge(Math.Min(a, b), Math.Abs(b - a) == 1);
+        (fromSum[e], fromSquares[e], toSum[e], toSquares[e]) = (fromSum[e] + by * f, fromSquares[e] + by * f * f, toSum[e] + by * t, toSquares[e] + by * t * t);
     }
 
-    void Use(List<int> path, int by)
+    void Use(List<int> path, int by, Link l)
     {
-        for (int i = 1; i < path.Count; i++) Use(path[i - 1], path[i], by);
+        int f = l.From is null ? 0 : key[l.From], t = l.To is null ? 0 : key[l.To];
+        for (int i = 1; i < path.Count; i++) Use(path[i - 1], path[i], by, f, t);
+    }
+
+    int Edge(int first, bool across) => across ? 2 * first : 2 * first + 1;
+
+    /// <summary>
+    /// How many lines on the grid edge from <paramref name="first"/> count against the line being routed. Lines that
+    /// share its from end, or all share its to end, cost nothing: running together they draw one trunk that branches
+    /// near its far ends, where a track each would draw a wall of parallel lines round a busy box.
+    /// </summary>
+    int Others(int first, bool across)
+    {
+        int n = across ? useRight[first] : useDown[first];
+        if (n == 0) return 0;
+        int e = Edge(first, across);
+        bool Same(int k, int[] sum, int[] squares) => k > 0 && sum[e] == n * k && squares[e] == n * k * k;
+        return Same(myFrom, fromSum, fromSquares) || Same(myTo, toSum, toSquares) ? 0 : n;
     }
 
     /// <summary>Routes the links, shortest first, then lets each one try again now that it can see all the others.</summary>
@@ -134,7 +160,7 @@ sealed class Router
             foreach (var l in order)
             {
                 var before = drawn[l.Id];
-                Use(before, -1);
+                Use(before, -1, l);
                 Draw(l);
                 if (!before.SequenceEqual(drawn[l.Id])) changed++;
             }
@@ -145,7 +171,7 @@ sealed class Router
     void Draw(Link l)
     {
         var path = Search(l, force: false) ?? Search(l, force: true) ?? Direct(l);
-        Use(path, 1);
+        Use(path, 1, l);
         drawn[l.Id] = path;
     }
 
@@ -191,6 +217,7 @@ sealed class Router
     {
         stamp++;
         open.Clear();
+        (myFrom, myTo) = (l.From is null ? 0 : key[l.From], l.To is null ? 0 : key[l.To]);
         Array.Clear(own);
         foreach (int c in Around(l.From).Concat(Around(l.To))) own[c] = true;
 
@@ -265,9 +292,10 @@ sealed class Router
             if (!force) return false;
             extra += Through;
         }
-        extra += Share * (dir switch { Right => useRight[node], Left => useRight[next], Down => useDown[node], _ => useDown[next] });
         int from = dir is Right or Down ? node : next; // the grid edge being walked, named by its first point
-        if (dir is Right or Left ? useRight[from - w1] + useRight[from + w1] > 0 : useDown[from - 1] + useDown[from + 1] > 0) extra += Beside;
+        bool across = dir is Right or Left;
+        extra += Share * Others(from, across);
+        if (across ? Others(from - w1, true) + Others(from + w1, true) > 0 : Others(from - 1, false) + Others(from + 1, false) > 0) extra += Beside;
         int a = inner[node], b = inner[next];
         if (a != b)
         {
@@ -280,7 +308,7 @@ sealed class Router
     // What a line pays for the other lines already at a grid point it passes through or turns at.
     int Meeting(int node, int dirIn, int dirOut)
     {
-        int Used(int side) => side switch { Right => useRight[node], Down => useDown[node], Left => useRight[node - 1], _ => useDown[node - w1] };
+        int Used(int side) => side switch { Right => Others(node, true), Down => Others(node, false), Left => Others(node - 1, true), _ => Others(node - w1, false) };
         if (dirIn == dirOut)
         {
             int a = Used((dirIn + 1) & 3), b = Used((dirIn + 3) & 3);

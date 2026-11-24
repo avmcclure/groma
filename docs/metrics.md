@@ -9,7 +9,7 @@ A "leaf" is a box that holds no other box; a "container" is one that does.
 | Crossings | Pairs of one horizontal and one vertical segment, belonging to different links, that intersect strictly inside both. A line ending on another line is not a crossing. | lower is better |
 | Through boxes | Pairs of (link, leaf box), where the box is not one of the link's ends and some segment of the link runs through the box or along one of its sides for a positive length. | 0 |
 | Overlapping boxes | Pairs of boxes that share area, where neither contains the other; plus boxes that are not wholly inside a container they belong to. Touching sides is not overlap. | 0 |
-| On top | Pairs of parallel segments of different links on the same line that share a positive length. | lower is better |
+| On top | Pairs of parallel segments of different links on the same line that share a positive length, unless the two links share an end (a bundle). | lower is better |
 | Container cuts | Pairs of (link, container), where neither end of the link is the container or inside it, and some segment runs through the container's inside. Running along its border is not a cut. | lower is better |
 | Bends | Changes of direction, summed over all links; also the average per link and the most on any one link. | lower is better |
 | Length | Total length of all segments, in steps. | lower is better |

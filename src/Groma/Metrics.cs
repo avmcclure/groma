@@ -68,7 +68,7 @@ public static class Metrics
                 {
                     if (q.Track > p.A && q.Track < p.B && p.Track > q.A && p.Track < q.B) crossings++;
                 }
-                else if (p.Track == q.Track && Math.Min(p.B, q.B) > Math.Max(p.A, q.A)) onTop++;
+                else if (p.Track == q.Track && Math.Min(p.B, q.B) > Math.Max(p.A, q.A) && !Bundled(layout.Links[p.Link], layout.Links[q.Link])) onTop++;
             }
 
         int through = 0, cuts = 0, labelClashes = 0, labelsOverLines = 0;
@@ -118,6 +118,9 @@ public static class Metrics
             Width = layout.Width, Height = layout.Height,
         };
     }
+
+    // Lines that share an end may run together as one trunk; that is a bundle, not one line hiding another.
+    static bool Bundled(Route a, Route b) => (a.From is not null && a.From == b.From) || (a.To is not null && a.To == b.To);
 
     public static string ToJson(Report r) => "{\n" + string.Join(",\n", new (string Name, long Value)[]
     {
