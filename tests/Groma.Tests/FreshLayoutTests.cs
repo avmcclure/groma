@@ -29,6 +29,28 @@ public class FreshLayoutTests
     }
 
     [Fact]
+    public void A_tall_sheet_is_folded_into_bands_side_by_side()
+    {
+        // 30 pairs, each a box linking to its own: two columns of 30, far taller than wide unless folded.
+        var ids = Enumerable.Range(0, 30).Select(i => $"s{i:00}").ToList();
+        var layout = Plan.Survey(G(string.Join(' ', ids.Concat(ids.Select(i => "t" + i))), string.Join(' ', ids.Select(i => $"{i}>t{i}"))));
+        Assert.True(layout.Width > layout.Height, $"{layout.Width} x {layout.Height}");
+        Assert.All(ids, i => Assert.Equal(At(layout, i).Y, At(layout, "t" + i).Y));   // each pair stays in one band, level
+        Assert.Equal(0, Metrics.Measure(layout).Crossings);
+        AssertSound(layout);
+    }
+
+    [Fact]
+    public void A_container_inside_is_never_folded()
+    {
+        var ids = Enumerable.Range(0, 30).Select(i => $"s{i:00}").ToList();
+        var layout = Plan.Survey(G(string.Join(' ', ids.Concat(ids.Select(i => "t" + i)).Append("c")), string.Join(' ', ids.Select(i => $"{i}>t{i}")),
+            string.Join(' ', ids.Concat(ids.Select(i => "t" + i)).Select(i => $"{i}<c"))));
+        Assert.True(At(layout, "c").Height > At(layout, "c").Width);
+        AssertSound(layout);
+    }
+
+    [Fact]
     public void Links_flow_top_to_bottom_when_asked()
     {
         var layout = Plan.Survey(G("a b c", "a>b b>c"), new Options { Direction = Direction.Down });

@@ -92,7 +92,7 @@ sealed class Placer
             else if (fromHere) lean[a]++;
             else if (toHere) lean[b]--;
         }
-        var spots = Layered.Arrange([.. blocks.Select(b => (b.W, b.H))], links, lean, options);
+        var spots = Layered.Arrange([.. blocks.Select(b => (b.W, b.H))], links, lean, options, fold: members == top);
 
         var items = new List<(string, Rect)>();
         int w = 0, h = 0;

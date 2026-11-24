@@ -12,8 +12,9 @@ static class Layered
 {
     const int Sweeps = 24; // the cap Graphviz dot uses
 
+    /// <param name="fold">Fold a tall drawing into bands; only the sheet itself is, not the inside of a container.</param>
     /// <param name="lean">For each box, links it sends out of the group minus links it receives from outside.</param>
-    public static (int X, int Y)[] Arrange((int W, int H)[] size, IReadOnlyList<(int From, int To)> links, int[] lean, Options o)
+    public static (int X, int Y)[] Arrange((int W, int H)[] size, IReadOnlyList<(int From, int To)> links, int[] lean, Options o, bool fold = false)
     {
         int n = size.Length, gap = o.BoxGap;
         bool right = o.Direction == Direction.Right;
@@ -191,6 +192,7 @@ static class Layered
                 foreach (int v in order[c].Where(v => v < n)) (main[v], cross[v]) = (start, at[v] - top);
                 start += order[c].Where(v => v < n).Select(Main).DefaultIfEmpty(0).Max() + 2 * gap;
             }
+            if (fold) Fold(linked, main, cross, Main, Cross, right, 2 * gap);
             crossEnd = linked.Max(v => cross[v] + Cross(v)) + gap;
         }
 
@@ -221,5 +223,45 @@ static class Layered
         }
 
         return [.. Enumerable.Range(0, n).Select(v => right ? (main[v], cross[v]) : (cross[v], main[v]))];
+    }
+
+    /// <summary>The shape, width over height, a sheet is folded towards: a screen's, roughly.</summary>
+    const double Landscape = 1.5;
+
+    /// <summary>
+    /// A few columns of many boxes make a sheet far longer across than along. Such a drawing is cut across, only
+    /// where no box spans the cut, into bands set side by side along the main direction, like a long text set in
+    /// columns. Linked boxes are already level with each other, so most links stay within their band.
+    /// </summary>
+    static void Fold(List<int> boxes, int[] main, int[] cross, Func<int, int> mainSize, Func<int, int> crossSize, bool right, int between)
+    {
+        int length = boxes.Max(v => main[v] + mainSize(v)), span = boxes.Max(v => cross[v] + crossSize(v));
+        double Miss(int bands)
+        {
+            double along = bands * (length + between) - between, across = (double)span / bands;
+            return Math.Abs(Math.Log((right ? along / across : across / along) / Landscape));
+        }
+        if (Miss(1) < Math.Log(Landscape)) return;   // only a drawing taller than it is wide is folded
+        int count = 1;
+        while (count < boxes.Count && Miss(count + 1) < Miss(count)) count++;
+        if (count == 1) return;
+
+        // A cut may fall at the near edge of any box that no other box overlaps there.
+        var free = boxes.Select(v => cross[v]).Where(c => c > 0 && boxes.All(u => cross[u] >= c || cross[u] + crossSize(u) <= c)).Distinct().Order().ToList();
+        var cuts = new List<int>();
+        for (int k = 1; k < count; k++)
+        {
+            int target = span * k / count;
+            var options = free.Where(c => c > cuts.LastOrDefault()).ToList();
+            if (options.Count == 0) break;
+            cuts.Add(options.MinBy(c => Math.Abs(c - target)));
+        }
+        foreach (int v in boxes)
+        {
+            int band = cuts.Count(c => c <= cross[v]);
+            if (band == 0) continue;
+            main[v] += band * (length + between);
+            cross[v] -= cuts[band - 1];
+        }
     }
 }
